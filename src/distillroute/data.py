@@ -64,7 +64,7 @@ def stratified_split(split: Split, frac: float, seed: int) -> tuple[Split, Split
     by_label: dict[str, list[int]] = {}
     for i, y in enumerate(split.labels):
         by_label.setdefault(y, []).append(i)
-    rng = random.Random(seed)
+    rng = random.Random(seed)  # noqa: S311 (seeded sampling, not crypto)
     cut: set[int] = set()
     for y in sorted(by_label):
         idx = by_label[y][:]
@@ -119,6 +119,6 @@ def load(name: str, seed: int = 0) -> Dataset:
 def sample(split: Split, n: int, seed: int) -> Split:
     """A seeded random sample of n rows, the texts a labeling budget would pay for."""
     idx = list(range(len(split)))
-    random.Random(seed).shuffle(idx)
+    random.Random(seed).shuffle(idx)  # noqa: S311 (seeded sampling, not crypto)
     idx = sorted(idx[:n])
     return Split([split.texts[i] for i in idx], [split.labels[i] for i in idx])

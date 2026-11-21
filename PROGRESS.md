@@ -2,18 +2,16 @@
 
 ## Done
 
-- Initializer, data loader with hashes, splits with the overlap drop, synthetic domain.
-- Both students, metrics, teacher cache and record mode (blocked here), hybrid router.
-- Main runs (seed 0, seed 1, full labels, synthetic) and timings.
+- F01 to F14 pass (see `feature_list.json`). Data, synthetic domain, both students, metrics, teacher cache and record mode, hybrid router, learning curve, noise sweep, timings, README and results page, study-later kit.
 
 ## Next
 
-- Learning curve rerun (point size bug fixed), README generation, docs, release check, hand-off.
+- F15: release check (review, scans, outside check), hand-off files, release SHA in CHANGELOG and HUMAN_STEPS, push, bundle.
 
 ## Blockers
 
-See BLOCKERS.md. Record mode and FastEmbed are blocked on this machine.
+See BLOCKERS.md. Record mode (no key, hosts refused), FastEmbed download and skill installs are blocked here.
 
 ## Last ./init.sh
 
-Not yet run on the full set (curve results pending).
+2026-11-21: all checks passed, 59 tests.

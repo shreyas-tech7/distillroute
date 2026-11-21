@@ -33,9 +33,7 @@ PROVIDERS = {
     ),
 }
 
-SYSTEM = (
-    "You route customer support tickets. Reply with exactly one label from the list and nothing else."
-)
+SYSTEM = "You route customer support tickets. Reply with exactly one label from the list and nothing else."
 
 
 class RecordBlocked(RuntimeError):
@@ -102,7 +100,7 @@ def http_send(provider: str, req: dict, timeout: float = 30.0, tries: int = 5) -
     wait = 2.0
     for _ in range(tries):
         try:
-            r = urllib.request.Request(url, data=body, headers=headers, method="POST")
+            r = urllib.request.Request(url, data=body, headers=headers, method="POST")  # noqa: S310 (fixed https URL from PROVIDERS)
             with urllib.request.urlopen(r, timeout=timeout) as resp:  # noqa: S310 (fixed https URL)
                 return resp.read()
         except urllib.error.HTTPError as e:
@@ -152,6 +150,8 @@ def fake_response(label: str) -> bytes:
         "id": "fixture",
         "object": "chat.completion",
         "model": "fixture-model",
-        "choices": [{"index": 0, "message": {"role": "assistant", "content": label}, "finish_reason": "stop"}],
+        "choices": [
+            {"index": 0, "message": {"role": "assistant", "content": label}, "finish_reason": "stop"}
+        ],
     }
     return json.dumps(body, sort_keys=True).encode()

@@ -1,17 +1,148 @@
 [
-  {"id": "F01", "area": "init", "description": "Initializer: memory files, init.sh, license, secret scan, saved build prompt", "steps": ["./init.sh", "test -f docs/build/BUILD_PROMPT.md"], "passes": false},
-  {"id": "F02", "area": "data", "description": "BANKING77 loader with license record, source URL and SHA-256 hashes", "steps": [".venv/bin/distillroute hashes", ".venv/bin/python -m pytest tests/test_data.py -k hashes"], "passes": false},
-  {"id": "F03", "area": "data", "description": "Splits: dev from train only, train/test overlap dropped, a test checks no leak", "steps": [".venv/bin/python -m pytest tests/test_data.py -k 'leak or overlap or disjoint'"], "passes": false},
-  {"id": "F04", "area": "data", "description": "Synthetic domain: 600 tickets in 12 categories written from scratch, seeded", "steps": [".venv/bin/python -m pytest tests/test_data.py -k synthetic"], "passes": false},
-  {"id": "F05", "area": "students", "description": "TF-IDF plus numpy logistic regression student", "steps": [".venv/bin/python -m pytest tests/test_students.py"], "passes": false},
-  {"id": "F06", "area": "students", "description": "Embedding student: FastEmbed when it downloads, hash embedder fallback, used in tests", "steps": [".venv/bin/python -m pytest tests/test_students.py -k 'hash or chance'"], "passes": false},
-  {"id": "F07", "area": "metrics", "description": "Accuracy and macro-F1 with 95% intervals, teacher agreement", "steps": [".venv/bin/python -m pytest tests/test_metrics.py"], "passes": false},
-  {"id": "F08", "area": "teacher", "description": "Teacher labels cached by request hash, replay byte for byte, record mode with fallback", "steps": [".venv/bin/python -m pytest tests/test_teacher.py", "test -f results/record-status.json"], "passes": false},
-  {"id": "F09", "area": "router", "description": "Hybrid threshold picked on dev only, hybrid bounds, cost per 10k, p50 latency, LLM share", "steps": [".venv/bin/python -m pytest tests/test_router.py"], "passes": false},
-  {"id": "F10", "area": "curve", "description": "Learning curve from real runs at 100, 250, 500, 800 and all labels, plus noise sweep", "steps": ["test -f results/curve-banking77.json", ".venv/bin/python -m pytest tests/test_results.py -k curve"], "passes": false},
-  {"id": "F11", "area": "speed", "description": "Each student trains in under 2 minutes on 2 cores with peak memory under 2 GB", "steps": ["test -f results/timings.json", ".venv/bin/python -m pytest tests/test_results.py -k timing"], "passes": false},
-  {"id": "F12", "area": "report", "description": "README table and static docs/index.html written from results, check mode fails on drift", "steps": [".venv/bin/distillroute readme --check", ".venv/bin/python -m pytest tests/test_results.py -k readme"], "passes": false},
-  {"id": "F13", "area": "docs", "description": "README gives dataset license and attribution, cost model with date", "steps": ["grep -q 'CC BY 4.0' README.md", ".venv/bin/python -m pytest tests/test_repo.py"], "passes": false},
-  {"id": "F14", "area": "quality", "description": "Quality bar: CI, badge, topics, social preview, demo, link check, study-later kit", "steps": [".venv/bin/python scripts/check_links.py", "actionlint", ".venv/bin/python -m pytest tests/test_repo.py"], "passes": false},
-  {"id": "F15", "area": "release", "description": "Release check and hand-off: review, scans, outside check, HUMAN_STEPS, COWORK_PROMPT, CHANGELOG SHA", "steps": ["test -f docs/RELEASE_CHECK.md", "test -f docs/HUMAN_STEPS.md", "test -f docs/handoff/COWORK_PROMPT.md"], "passes": false}
+  {
+    "id": "F01",
+    "area": "init",
+    "description": "Initializer: memory files, init.sh, license, secret scan, saved build prompt",
+    "steps": [
+      "./init.sh",
+      "test -f docs/build/BUILD_PROMPT.md"
+    ],
+    "passes": true
+  },
+  {
+    "id": "F02",
+    "area": "data",
+    "description": "BANKING77 loader with license record, source URL and SHA-256 hashes",
+    "steps": [
+      ".venv/bin/distillroute hashes",
+      ".venv/bin/python -m pytest tests/test_data.py -k hashes"
+    ],
+    "passes": true
+  },
+  {
+    "id": "F03",
+    "area": "data",
+    "description": "Splits: dev from train only, train/test overlap dropped, a test checks no leak",
+    "steps": [
+      ".venv/bin/python -m pytest tests/test_data.py -k 'leak or overlap or disjoint'"
+    ],
+    "passes": true
+  },
+  {
+    "id": "F04",
+    "area": "data",
+    "description": "Synthetic domain: 600 tickets in 12 categories written from scratch, seeded",
+    "steps": [
+      ".venv/bin/python -m pytest tests/test_data.py -k synthetic"
+    ],
+    "passes": true
+  },
+  {
+    "id": "F05",
+    "area": "students",
+    "description": "TF-IDF plus numpy logistic regression student",
+    "steps": [
+      ".venv/bin/python -m pytest tests/test_students.py"
+    ],
+    "passes": true
+  },
+  {
+    "id": "F06",
+    "area": "students",
+    "description": "Embedding student: FastEmbed when it downloads, hash embedder fallback, used in tests",
+    "steps": [
+      ".venv/bin/python -m pytest tests/test_students.py -k 'hash or chance'"
+    ],
+    "passes": true
+  },
+  {
+    "id": "F07",
+    "area": "metrics",
+    "description": "Accuracy and macro-F1 with 95% intervals, teacher agreement",
+    "steps": [
+      ".venv/bin/python -m pytest tests/test_metrics.py"
+    ],
+    "passes": true
+  },
+  {
+    "id": "F08",
+    "area": "teacher",
+    "description": "Teacher labels cached by request hash, replay byte for byte, record mode with fallback",
+    "steps": [
+      ".venv/bin/python -m pytest tests/test_teacher.py",
+      "test -f results/record-status.json"
+    ],
+    "passes": true
+  },
+  {
+    "id": "F09",
+    "area": "router",
+    "description": "Hybrid threshold picked on dev only, hybrid bounds, cost per 10k, p50 latency, LLM share",
+    "steps": [
+      ".venv/bin/python -m pytest tests/test_router.py"
+    ],
+    "passes": true
+  },
+  {
+    "id": "F10",
+    "area": "curve",
+    "description": "Learning curve from real runs at 100, 250, 500, 800 and all labels, plus noise sweep",
+    "steps": [
+      "test -f results/curve-banking77.json",
+      ".venv/bin/python -m pytest tests/test_results.py -k curve"
+    ],
+    "passes": true
+  },
+  {
+    "id": "F11",
+    "area": "speed",
+    "description": "Each student trains in under 2 minutes on 2 cores with peak memory under 2 GB",
+    "steps": [
+      "test -f results/timings.json",
+      ".venv/bin/python -m pytest tests/test_results.py -k timing"
+    ],
+    "passes": true
+  },
+  {
+    "id": "F12",
+    "area": "report",
+    "description": "README table and static docs/index.html written from results, check mode fails on drift",
+    "steps": [
+      ".venv/bin/distillroute readme --check",
+      ".venv/bin/python -m pytest tests/test_results.py -k readme"
+    ],
+    "passes": true
+  },
+  {
+    "id": "F13",
+    "area": "docs",
+    "description": "README gives dataset license and attribution, cost model with date",
+    "steps": [
+      "grep -q 'CC BY 4.0' README.md",
+      ".venv/bin/python -m pytest tests/test_repo.py"
+    ],
+    "passes": true
+  },
+  {
+    "id": "F14",
+    "area": "quality",
+    "description": "Quality bar: CI, badge, topics, social preview, demo, link check, study-later kit",
+    "steps": [
+      ".venv/bin/python scripts/check_links.py",
+      "actionlint",
+      ".venv/bin/python -m pytest tests/test_repo.py"
+    ],
+    "passes": true
+  },
+  {
+    "id": "F15",
+    "area": "release",
+    "description": "Release check and hand-off: review, scans, outside check, HUMAN_STEPS, COWORK_PROMPT, CHANGELOG SHA",
+    "steps": [
+      "test -f docs/RELEASE_CHECK.md",
+      "test -f docs/HUMAN_STEPS.md",
+      "test -f docs/handoff/COWORK_PROMPT.md"
+    ],
+    "passes": false
+  }
 ]

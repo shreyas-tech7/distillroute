@@ -71,7 +71,9 @@ def make_embedder():
     return HashEmbedder(), "hash embedder (FastEmbed model download blocked here, see BLOCKERS.md)"
 
 
-def teacher_labels(ds: data.Dataset, texts: list[str], model: str, folder: Path = FIXTURES) -> list[str] | None:
+def teacher_labels(
+    ds: data.Dataset, texts: list[str], model: str, folder: Path = FIXTURES
+) -> list[str] | None:
     """Replay recorded teacher labels for every text, or None when any one is missing."""
     t = Teacher(ds.labels, Cache(folder / ds.name), model)
     out = []
@@ -95,7 +97,7 @@ def p50_latency_ms(student: Student, texts: list[str]) -> float:
 
 def label_noise(labels: list[str], classes: list[str], rate: float, seed: int) -> list[str]:
     """Swap `rate` of the labels for a different random class. Simulates a noisy teacher."""
-    rng = random.Random(seed)
+    rng = random.Random(seed)  # noqa: S311 (seeded sampling, not crypto)
     out = list(labels)
     for i in rng.sample(range(len(out)), round(rate * len(out))):
         out[i] = rng.choice([c for c in classes if c != out[i]])
@@ -148,7 +150,10 @@ def run(name: str = "banking77", seed: int = 0, budget: int = BUDGET) -> dict:
     train = data.sample(ds.train, min(budget, len(ds.train)), seed)
     teach = teacher_labels(ds, train.texts, prices["llm"]["model"])
     if teach is None:
-        labels, source = train.labels, "gold (the teacher step did not run, so this shows training, not distillation)"
+        labels, source = (
+            train.labels,
+            "gold (the teacher step did not run, so this shows training, not distillation)",
+        )
     else:
         labels, source = teach, f"teacher {prices['llm']['model']} from the fixture cache"
     llm_sample = data.sample(ds.test, min(BASELINE_SAMPLE, len(ds.test)), seed)
@@ -194,9 +199,19 @@ def curve(name: str = "banking77", seeds=CURVE_SEEDS, sizes=SIZES) -> dict:
     """Test accuracy and macro-F1 against the number of labeled training examples, plus noise."""
     cores = pin_cores()
     ds = data.load(name, 0)
-    out = {"meta": {"date": dt.date.today().isoformat(), "dataset": name, "seeds": list(seeds),
-                    "cpu": cpu_model(), "cores": cores, "labels": "gold (the teacher step did not run)",
-                    "embedder": make_embedder()[1]}, "points": [], "noise": []}
+    out = {
+        "meta": {
+            "date": dt.date.today().isoformat(),
+            "dataset": name,
+            "seeds": list(seeds),
+            "cpu": cpu_model(),
+            "cores": cores,
+            "labels": "gold (the teacher step did not run)",
+            "embedder": make_embedder()[1],
+        },
+        "points": [],
+        "noise": [],
+    }
     for kind in ("tfidf", "embed"):
         for n in [*sizes, len(ds.train)]:
             for sd in seeds:
@@ -211,7 +226,9 @@ def curve(name: str = "banking77", seeds=CURVE_SEEDS, sizes=SIZES) -> dict:
                 noisy = label_noise(tr.labels, ds.labels, rate, sd)
                 s = Student(kind, seed=sd).fit(tr.texts, noisy)
                 p, _ = s.predict(ds.test.texts)
-                out["noise"].append({**metrics.score(ds.test.labels, p, sd), "student": s.name, "rate": rate, "seed": sd})
+                out["noise"].append(
+                    {**metrics.score(ds.test.labels, p, sd), "student": s.name, "rate": rate, "seed": sd}
+                )
     return out
 
 
@@ -227,9 +244,15 @@ def timeit(kind: str, name: str = "banking77") -> dict:
 
 
 def timings(name: str = "banking77") -> dict:
-    out = {"meta": {"date": dt.date.today().isoformat(), "cpu": cpu_model(), "dataset": name,
-                    "how": "fresh child process per student, pinned to cores 0 and 1, full training split"},
-           "students": []}
+    out = {
+        "meta": {
+            "date": dt.date.today().isoformat(),
+            "cpu": cpu_model(),
+            "dataset": name,
+            "how": "fresh child process per student, pinned to cores 0 and 1, full training split",
+        },
+        "students": [],
+    }
     for kind in ("tfidf", "embed"):
         cmd = [sys.executable, "-m", "distillroute.cli", "timeit", "--student", kind, "--dataset", name]
         res = subprocess.run(cmd, capture_output=True, text=True, timeout=600, check=True)  # noqa: S603

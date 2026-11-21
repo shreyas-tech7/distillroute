@@ -46,7 +46,9 @@ def test_replay_miss_never_calls_out():
 
 
 def test_record_writes_once(tmp_path):
-    t = teacher.Teacher(["a", "b"], teacher.Cache(tmp_path), "m", send=lambda r: teacher.fake_response("b"), record=True)
+    t = teacher.Teacher(
+        ["a", "b"], teacher.Cache(tmp_path), "m", send=lambda r: teacher.fake_response("b"), record=True
+    )
     assert t.label("x") == "b"
     assert t.label("x") == "b"
     assert t.calls == 1 and t.hits == 1
@@ -55,7 +57,12 @@ def test_record_writes_once(tmp_path):
 
 @pytest.mark.parametrize(
     ("content", "want"),
-    [("card_arrival", "card_arrival"), ("`Card_Arrival`.", "card_arrival"), ("Label: card_arrival", "card_arrival"), ("no idea", None)],
+    [
+        ("card_arrival", "card_arrival"),
+        ("`Card_Arrival`.", "card_arrival"),
+        ("Label: card_arrival", "card_arrival"),
+        ("no idea", None),
+    ],
 )
 def test_parse_label(content, want):
     import json

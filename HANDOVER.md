@@ -1,19 +1,11 @@
-# Progress
+# Handover
 
-## Done
+Done: everything but the release check and hand-off (F15). Branch `claude/project-thread-we8eq4`.
 
-- Initializer, data loader with hashes, splits with the overlap drop, synthetic domain.
-- Both students, metrics, teacher cache and record mode (blocked here), hybrid router.
-- Main runs (seed 0, seed 1, full labels, synthetic) and timings.
+Next, in order:
 
-## Next
+1. `./init.sh` and `.venv/bin/distillroute readme --check`.
+2. Release check from `docs/build/BUILD_PROMPT.md` section 11. Log results in `docs/RELEASE_CHECK.md`.
+3. Write the release SHA into `CHANGELOG.md` and `docs/HUMAN_STEPS.md`, push to origin and backup, write the bundle, the report and the queue row.
 
-- Learning curve rerun (point size bug fixed), README generation, docs, release check, hand-off.
-
-## Blockers
-
-See BLOCKERS.md. Record mode and FastEmbed are blocked on this machine.
-
-## Last ./init.sh
-
-Not yet run on the full set (curve results pending).
+Open decisions: none. Heavy jobs: `distillroute run`, `distillroute curve` (about 5 minutes), `distillroute timings`.

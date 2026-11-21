@@ -7,7 +7,6 @@ import datetime as dt
 import json
 import sys
 from functools import partial
-from pathlib import Path
 
 from . import bench, data, synth, teacher
 
@@ -33,8 +32,10 @@ def cmd_run(a) -> int:
         bench.write(res, ROOT / "results" / f"{name}-b{res['meta']['budget']}-seed{a.seed}.json")
         for k, v in res["rows"].items():
             s, h = v["student"], v["hybrid"]
-            print(f"{name} {k}: acc {s['accuracy']:.3f} f1 {s['macro_f1']:.3f} "
-                  f"hybrid llm share {h['llm_share']:.2f} lower {h['lower']['accuracy']:.3f} upper {h['upper']['accuracy']:.3f}")
+            print(
+                f"{name} {k}: acc {s['accuracy']:.3f} f1 {s['macro_f1']:.3f} "
+                f"hybrid llm share {h['llm_share']:.2f} lower {h['lower']['accuracy']:.3f} upper {h['upper']['accuracy']:.3f}"
+            )
     return 0
 
 
@@ -63,10 +64,20 @@ def cmd_record(a) -> int:
     prices = json.loads((ROOT / "data" / "prices.json").read_text())
     ds = data.load(a.dataset, 0)
     model = teacher.PROVIDERS[a.provider][2] if a.provider != "gemini" else prices["llm"]["model"]
-    t = teacher.Teacher(ds.labels, teacher.Cache(bench.FIXTURES / ds.name), model,
-                        send=partial(teacher.http_send, a.provider), record=True)
+    t = teacher.Teacher(
+        ds.labels,
+        teacher.Cache(bench.FIXTURES / ds.name),
+        model,
+        send=partial(teacher.http_send, a.provider),
+        record=True,
+    )
     texts = data.sample(ds.train, a.budget, 0).texts
-    status = {"date": dt.date.today().isoformat(), "provider": a.provider, "model": model, "requested": len(texts)}
+    status = {
+        "date": dt.date.today().isoformat(),
+        "provider": a.provider,
+        "model": model,
+        "requested": len(texts),
+    }
     try:
         for x in texts:
             t.raw(x)
@@ -94,9 +105,11 @@ def cmd_demo(a) -> int:
     res = bench.run("synthetic", 0, 360)
     for k, v in res["rows"].items():
         s, h = v["student"], v["hybrid"]
-        print(f"synthetic {k}: accuracy {s['accuracy']:.3f} macro-F1 {s['macro_f1']:.3f}, "
-              f"threshold {h['threshold']:.2f} sends {100 * h['llm_share']:.0f}% to the LLM, "
-              f"hybrid accuracy between {h['lower']['accuracy']:.3f} and {h['upper']['accuracy']:.3f}")
+        print(
+            f"synthetic {k}: accuracy {s['accuracy']:.3f} macro-F1 {s['macro_f1']:.3f}, "
+            f"threshold {h['threshold']:.2f} sends {100 * h['llm_share']:.0f}% to the LLM, "
+            f"hybrid accuracy between {h['lower']['accuracy']:.3f} and {h['upper']['accuracy']:.3f}"
+        )
     print(f"LLM only: {res['llm_only']['status']}")
     return 0
 

@@ -53,6 +53,7 @@ A support team gets tickets. Each ticket needs a queue. An LLM can pick the queu
 ## The headline
 
 <!-- gen:headline -->
+With 800 labels, the best student gets 65.2% accuracy on the BANKING77 test split, and the hybrid has to send 75% of tickets to the LLM to keep the student's share at the 95% target. With all 8498 training labels, TF-IDF gets 86.0% and the hybrid sends 30%.
 <!-- /gen:headline -->
 
 ## Other files

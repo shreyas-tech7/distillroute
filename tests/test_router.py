@@ -17,7 +17,12 @@ def test_hybrid_bounds():
     pred = ["a", "x", "c", "y"]
     kept = [True, True, False, False]
     assert router.hybrid_predictions(gold, pred, kept, True) == ["a", "x", "c", "d"]
-    assert router.hybrid_predictions(gold, pred, kept, False) == ["a", "x", router.LLM_WRONG, router.LLM_WRONG]
+    assert router.hybrid_predictions(gold, pred, kept, False) == [
+        "a",
+        "x",
+        router.LLM_WRONG,
+        router.LLM_WRONG,
+    ]
 
 
 def test_threshold_is_chosen_on_dev_not_test(monkeypatch):

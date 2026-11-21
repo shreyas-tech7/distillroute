@@ -139,7 +139,7 @@ def _fill(template: str, rng: random.Random) -> str:
 
 def generate(seed: int = 7) -> list[tuple[str, str]]:
     """Return 600 (text, category) pairs. Same seed, same tickets. Duplicate texts are redrawn."""
-    rng = random.Random(seed)
+    rng = random.Random(seed)  # noqa: S311 (seeded sampling, not crypto)
     rows: list[tuple[str, str]] = []
     seen: set[str] = set()
     for cat in CATEGORIES:

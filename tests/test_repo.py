@@ -11,8 +11,17 @@ import pytest
 ROOT = Path(__file__).resolve().parents[1]
 FENCE = re.compile(r"```.*?```", re.S)
 CODE = re.compile(r"`[^`]*`")
-SECTIONS = ["## The problem", "## How it works", "## Results", "## Cost per task", "## Run it in 10 minutes",
-            "## Limits", "## Glossary", "## Related work", "## How this was built"]
+SECTIONS = [
+    "## The problem",
+    "## How it works",
+    "## Results",
+    "## Cost per task",
+    "## Run it in 10 minutes",
+    "## Limits",
+    "## Glossary",
+    "## Related work",
+    "## How this was built",
+]
 
 
 def test_readme_parts_in_order():
@@ -51,12 +60,28 @@ def test_writing_rules(path):
 
 
 def test_ship_files():
-    for f in ["LICENSE", "CHANGELOG.md", "CONTRIBUTING.md", ".env.example", ".pre-commit-config.yaml",
-              ".github/workflows/ci.yml", ".github/ISSUE_TEMPLATE/bug_report.md",
-              ".github/ISSUE_TEMPLATE/feature_request.md", "docs/index.html", "docs/DEMO.md", "docs/topics.txt",
-              "docs/GITHUB_ABOUT.md", "docs/WALKTHROUGH.md", "docs/INTERVIEW_QA.md", "docs/HUMAN_STEPS.md",
-              "docs/handoff/COWORK_PROMPT.md", "docs/build/BUILD_PROMPT.md", "data/SOURCES.json",
-              "data/banking77/LICENSE", "data/prices.json"]:
+    for f in [
+        "LICENSE",
+        "CHANGELOG.md",
+        "CONTRIBUTING.md",
+        ".env.example",
+        ".pre-commit-config.yaml",
+        ".github/workflows/ci.yml",
+        ".github/ISSUE_TEMPLATE/bug_report.md",
+        ".github/ISSUE_TEMPLATE/feature_request.md",
+        "docs/index.html",
+        "docs/DEMO.md",
+        "docs/topics.txt",
+        "docs/GITHUB_ABOUT.md",
+        "docs/WALKTHROUGH.md",
+        "docs/INTERVIEW_QA.md",
+        "docs/HUMAN_STEPS.md",
+        "docs/handoff/COWORK_PROMPT.md",
+        "docs/build/BUILD_PROMPT.md",
+        "data/SOURCES.json",
+        "data/banking77/LICENSE",
+        "data/prices.json",
+    ]:
         assert (ROOT / f).is_file(), f
     assert "Copyright (c) 2026 Shreyas" in (ROOT / "LICENSE").read_text()
 
