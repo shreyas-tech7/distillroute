@@ -1,0 +1,42 @@
+name: CI
+
+on:
+  push:
+    # Skip pushes that change only hand-written docs. README.md and docs/index.html hold
+    # generated blocks, so they still run `readme --check`.
+    paths:
+      - "**"
+      - "!**.md"
+      - "!docs/**"
+      - "README.md"
+      - "docs/index.html"
+      - "docs/INTERVIEW_QA.md"
+      - "docs/WALKTHROUGH.md"
+  pull_request:
+  workflow_dispatch:
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - uses: astral-sh/setup-uv@v6
+      - name: init.sh (install, lint, link check, offline tests)
+        run: ./init.sh
+      - name: Generated files are up to date
+        run: .venv/bin/distillroute readme --check
+      - name: Data hashes match the records
+        run: .venv/bin/distillroute hashes
+      - name: Demo runs
+        run: .venv/bin/distillroute demo

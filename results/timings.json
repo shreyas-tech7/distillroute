@@ -1,0 +1,30 @@
+{
+  "meta": {
+    "cpu": "Intel(R) Xeon(R) Processor @ 2.10GHz",
+    "dataset": "banking77",
+    "date": "2026-11-21",
+    "how": "fresh child process per student, pinned to cores 0 and 1, full training split"
+  },
+  "students": [
+    {
+      "cores": [
+        0,
+        1
+      ],
+      "n": 8498,
+      "peak_mb": 429.7265625,
+      "seconds": 21.405390408000017,
+      "student": "tfidf"
+    },
+    {
+      "cores": [
+        0,
+        1
+      ],
+      "n": 8498,
+      "peak_mb": 111.00390625,
+      "seconds": 5.3115452270000105,
+      "student": "embed"
+    }
+  ]
+}

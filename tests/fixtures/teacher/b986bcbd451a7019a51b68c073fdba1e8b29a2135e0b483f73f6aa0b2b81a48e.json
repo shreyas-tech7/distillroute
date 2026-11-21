@@ -1,0 +1,1 @@
+{"choices": [{"finish_reason": "stop", "index": 0, "message": {"content": "account_access", "role": "assistant"}}], "id": "fixture", "model": "fixture-model", "object": "chat.completion"}

@@ -1,0 +1,30 @@
+{
+  "datasets": {
+    "banking77": {
+      "name": "BANKING77",
+      "license": "CC BY 4.0",
+      "license_file": "banking77/LICENSE",
+      "attribution": "Casanueva, Temcinas, Gerz, Henderson and Vulic. Efficient Intent Detection with Dual Sentence Encoders. NLP4ConvAI workshop, ACL 2020. Data by PolyAI.",
+      "source": "https://github.com/PolyAI-LDN/task-specific-datasets/tree/master/banking_data",
+      "download": "https://raw.githubusercontent.com/PolyAI-LDN/task-specific-datasets/master/banking_data/",
+      "hub": "https://huggingface.co/datasets/PolyAI/banking77",
+      "downloaded_on": "2026-11-21",
+      "changes": "none, files are byte for byte as downloaded",
+      "sha256": {
+        "banking77/train.csv": "b06e26ac675513959a63135f11b94ea7786ed02da65db93a5650d8838cbc664b",
+        "banking77/test.csv": "d12d6e3bc4c3103966ae786dc435913c0c563dfa328f5a3646d0e62cfeeb474d",
+        "banking77/categories.json": "53261da888122daf2d120d925458631d9619e15d82e56052e7a42e535ce32b63",
+        "banking77/LICENSE": "7e7170e3cebf88a9f60c7b8421418323c09304da1af4d5e90f4da1dc1c8a2661"
+      }
+    },
+    "synthetic": {
+      "name": "distillroute synthetic small-business tickets",
+      "license": "MIT (this repo)",
+      "source": "written from scratch in src/distillroute/synth.py, seed 7",
+      "downloaded_on": null,
+      "sha256": {
+        "synthetic/tickets.csv": "5f66795b21bde33e5c4301ae2fa7bef08628dd588a91788ea14887e44c7fafd9"
+      }
+    }
+  }
+}

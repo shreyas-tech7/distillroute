@@ -1,0 +1,29 @@
+{
+  "gemini": {
+    "calls": 0,
+    "date": "2026-11-21",
+    "error": "gemini answered HTTP 400",
+    "model": "gemini-3.1-flash-lite",
+    "provider": "gemini",
+    "requested": 3,
+    "result": "blocked"
+  },
+  "groq": {
+    "calls": 0,
+    "date": "2026-11-21",
+    "error": "groq unreachable: <urlopen error Tunnel connection failed: 403 Forbidden (agent proxy: no rule or network setting allows this host)>",
+    "model": "llama-3.1-8b-instant",
+    "provider": "groq",
+    "requested": 3,
+    "result": "blocked"
+  },
+  "openrouter": {
+    "calls": 0,
+    "date": "2026-11-21",
+    "error": "openrouter unreachable: <urlopen error Tunnel connection failed: 403 Forbidden (agent proxy: no rule or network setting allows this host)>",
+    "model": "meta-llama/llama-3.1-8b-instruct:free",
+    "provider": "openrouter",
+    "requested": 3,
+    "result": "blocked"
+  }
+}
