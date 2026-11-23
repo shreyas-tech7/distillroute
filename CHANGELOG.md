@@ -2,7 +2,7 @@
 
 ## v0.1.0-rc1 (2026-11-23)
 
-Release commit: RELEASE_SHA_PENDING
+Release commit: ab15e2806f782dbcb2a41a74c0f83ad5e79d59fa
 
 - BANKING77 loader with license record and hashes, a dev split from train, and a drop of the 7 train texts that repeat in test.
 - A synthetic domain of 600 small-business tickets in 12 categories.
