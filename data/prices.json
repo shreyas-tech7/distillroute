@@ -1,0 +1,19 @@
+{
+  "note": "Comparison prices, read on the date below. They change. Re-read the source before you quote them.",
+  "llm": {
+    "model": "gemini-3.1-flash-lite",
+    "input_usd_per_million": 0.25,
+    "output_usd_per_million": 1.5,
+    "source": "https://ai.google.dev/gemini-api/docs/pricing",
+    "read_on": "2026-11-21",
+    "tier": "paid tier, Standard, text input"
+  },
+  "compute": {
+    "name": "GitHub-hosted Linux 2-core (x64) runner",
+    "usd_per_minute": 0.006,
+    "cores": 2,
+    "source": "https://docs.github.com/en/billing/reference/actions-runner-pricing",
+    "read_on": "2026-11-21"
+  },
+  "chars_per_token": 4
+}

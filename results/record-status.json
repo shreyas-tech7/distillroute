@@ -1,0 +1,32 @@
+{
+  "gemini": {
+    "calls": 0,
+    "date": "2026-11-23",
+    "error": "gemini: GEMINI_API_KEY is not set",
+    "model": "gemini-3.1-flash-lite",
+    "provider": "gemini",
+    "requested": 3,
+    "result": "blocked",
+    "seed": 0
+  },
+  "groq": {
+    "calls": 0,
+    "date": "2026-11-23",
+    "error": "groq: GROQ_API_KEY is not set",
+    "model": "llama-3.1-8b-instant",
+    "provider": "groq",
+    "requested": 3,
+    "result": "blocked",
+    "seed": 0
+  },
+  "openrouter": {
+    "calls": 0,
+    "date": "2026-11-23",
+    "error": "openrouter: OPENROUTER_API_KEY is not set",
+    "model": "meta-llama/llama-3.1-8b-instruct:free",
+    "provider": "openrouter",
+    "requested": 3,
+    "result": "blocked",
+    "seed": 0
+  }
+}

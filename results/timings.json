@@ -1,0 +1,38 @@
+{
+  "meta": {
+    "cpu": "Intel(R) Xeon(R) Processor @ 2.10GHz",
+    "dataset": "banking77",
+    "date": "2026-11-21",
+    "how": "fresh child process per student, pinned to cores 0 and 1 before numpy starts its threads, BLAS threads capped at 2, full training split"
+  },
+  "students": [
+    {
+      "cores": [
+        0,
+        1
+      ],
+      "n": 8498,
+      "peak_mb": 429.90625,
+      "seconds": 36.64517194399991,
+      "student": "tfidf",
+      "thread_cores": [
+        0,
+        1
+      ]
+    },
+    {
+      "cores": [
+        0,
+        1
+      ],
+      "n": 8498,
+      "peak_mb": 110.94921875,
+      "seconds": 7.557633470000155,
+      "student": "embed",
+      "thread_cores": [
+        0,
+        1
+      ]
+    }
+  ]
+}

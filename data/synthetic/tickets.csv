@@ -1,0 +1,601 @@
+text,category
+Quick question. I cannot log in to my account. This is urgent.,account_access
+The package had the wrong color backpack in it. This is urgent.,wrong_item
+"Hi, I have not heard anything about my blender order since I paid. This is urgent.",order_status
+Hello. The courier keeps moving the delivery date for my blender.,shipping_delay
+"Hey team, I ordered a kettle but you sent me something else. This is urgent.",wrong_item
+"Hey team, I returned the yoga mat three days ago and still have no refund.",refund_status
+I cannot log in to my account. Thanks.,account_access
+Quick question. Is the coffee grinder safe to put in the dishwasher? Please help.,product_question
+Quick question. Please call me about my backpack.,wrong_item
+"Hi, My card shows a charge of $260 that I do not recognize. Thanks.",billing_error
+Please cancel my Starter subscription at the end of this month. Thanks.,subscription_change
+Hello. Does the rug come with a warranty?,product_question
+Quick question. The box was crushed and the coffee grinder inside is broken.,damaged_item
+"Hi, I have a problem with the coffee grinder.",account_access
+Hello. My last order from Tulsa is a mess. Thanks.,refund_status
+"Hi, The blender shows out for delivery but nothing arrived in Tulsa. Thank you!",shipping_delay
+"Hey team, The box was crushed and the phone case inside is broken. Thank you!",damaged_item
+Hello. When will the $42 refund show up on my card?,refund_status
+"Hey team, The desk lamp shows out for delivery but nothing arrived in Austin. Please help.",shipping_delay
+"Hi, Please cancel my Team subscription at the end of this month. This is urgent.",subscription_change
+How do I move from the Team plan to a cheaper one? Thank you!,subscription_change
+Hello. Can you tell me when my backpack will ship? Thanks.,order_status
+I got someone else's order instead of my rug.,wrong_item
+"Hey team, When I click pay on the product page nothing happens.",website_bug
+"Hi, My refund for the yoga mat seems to be missing.",refund_status
+"Hey team, How long do I have to return the backpack?",return_request
+I need help with my desk lamp order. Thank you!,refund_status
+Quick question. Please call me about my rug. This is urgent.,product_question
+"Hi, My card shows a charge of $18 that I do not recognize.",billing_error
+What is the minimum order for wholesale coffee grinder stock? Please help.,wholesale_inquiry
+"Hey team, My desk lamp arrived cracked. Thank you!",damaged_item
+What size is the coffee grinder exactly? Thanks.,product_question
+The package had the wrong color phone case in it.,wrong_item
+"Hey team, My last order from Tulsa is a mess. Thank you!",product_question
+Quick question. Why was I charged tax twice on my rug?,billing_error
+Quick question. My refund for the desk lamp seems to be missing.,refund_status
+Hello. The login page shows the wrong price for the phone case.,website_bug
+I have not heard anything about my coffee grinder order since I paid. This is urgent.,order_status
+My order for a kettle still says processing after three days.,order_status
+My package was due last week and it is still not here. Please help.,shipping_delay
+You shipped two of the wrong rug and none of the right one. Thank you!,wrong_item
+"Hi, We would like a quote for 200 units of the coffee grinder.",wholesale_inquiry
+When I click pay on the checkout page nothing happens.,website_bug
+"Hey team, My last order from Boise is a mess. Thanks.",wrong_item
+The product page keeps showing an error. Thank you!,website_bug
+Please cancel my Pro subscription at the end of this month. Please help.,subscription_change
+"Hi, Can our store in Reno become a reseller? Thank you!",wholesale_inquiry
+Quick question. The package had the wrong color coffee grinder in it. Please help.,wrong_item
+"Hey team, Something is wrong with my order.",product_question
+Hello. This is not the backpack on my receipt.,wrong_item
+I got someone else's order instead of my coffee grinder.,wrong_item
+Hello. The checkout page shows the wrong price for the desk lamp. Please help.,website_bug
+"Hey team, Is the coffee grinder safe to put in the dishwasher?",product_question
+Hello. We would like a quote for 200 units of the backpack.,wholesale_inquiry
+"Hey team, I cannot log in to my account. This is urgent.",account_access
+Hello. My last order from Omaha is a mess. Please help.,wholesale_inquiry
+Quick question. I have a problem with the backpack. Thanks.,return_request
+Quick question. The rug is not what I expected and I would like to return it.,return_request
+The password reset email never arrives. This is urgent.,account_access
+Quick question. The kettle is not what I expected and I would like to return it.,return_request
+Can I upgrade to the Team plan halfway through the month? Thank you!,subscription_change
+"Hi, When will the $75 refund show up on my card?",refund_status
+"Hi, I want to send the blender back. How do I start a return? Thank you!",return_request
+I returned the blender twelve days ago and still have no refund. Please help.,refund_status
+I have a problem with the kettle. Please help.,subscription_change
+"Hi, Can someone look at my account please?",refund_status
+When will the $18 refund show up on my card?,refund_status
+I ordered a kettle but you sent me something else. Thanks.,wrong_item
+"Hi, Please call me about my desk lamp. Thank you!",account_access
+Quick question. I changed my email and now I cannot sign in. Please help.,account_access
+Will the coffee grinder work with a European plug? Please help.,product_question
+"Hey team, Can I return a coffee grinder that I opened three days ago?",return_request
+"Hi, The account page shows the wrong price for the blender. Thanks.",website_bug
+"Hey team, I ordered a yoga mat but you sent me something else.",wrong_item
+"Hey team, Please call me about my backpack.",subscription_change
+How do I move from the Starter plan to a cheaper one? Thank you!,subscription_change
+"Hi, Your checkout page freezes every time I scroll. Thank you!",website_bug
+Quick question. The account page will not load on my phone. Thanks.,website_bug
+"Hey team, Please call me about my blender. Thanks.",product_question
+"Hi, I need help with my phone case order. This is urgent.",damaged_item
+Can someone look at my account please? Thanks.,damaged_item
+Why is shipping to Boise taking so long?,shipping_delay
+Quick question. Half of the phone case was missing parts when I opened it.,damaged_item
+My last order from Tulsa is a mess. Please help.,website_bug
+"Hey team, I ordered a desk lamp but you sent me something else. Thanks.",wrong_item
+Hello. You billed me for the Team plan after I cancelled it.,billing_error
+"Hi, Is the blender safe to put in the dishwasher? Please help.",product_question
+"Hey team, I have a problem with the yoga mat. Thank you!",product_question
+"Hey team, Why is shipping to Reno taking so long?",shipping_delay
+The rug I received has a dent on the side. Thank you!,damaged_item
+Hello. The password reset email never arrives. This is urgent.,account_access
+"Hi, We would like a quote for 200 units of the desk lamp. Thank you!",wholesale_inquiry
+"Hey team, We would like a quote for 200 units of the blender.",wholesale_inquiry
+Is the coffee grinder back in stock soon? Thanks.,product_question
+Quick question. My refund for the coffee grinder seems to be missing. Thanks.,refund_status
+"Hey team, I have a problem with the yoga mat. Please help.",shipping_delay
+Hello. What size is the phone case exactly?,product_question
+"Hey team, My last order from Boise is a mess. Please help.",order_status
+"Hey team, I got someone else's order instead of my desk lamp. Thanks.",wrong_item
+Hello. I need help with my phone case order. This is urgent.,account_access
+Hello. Can I return a kettle that I opened five days ago?,return_request
+Can I upgrade to the Team plan halfway through the month?,subscription_change
+Hello. Why was I charged tax twice on my blender?,billing_error
+"Hi, I have not heard anything about my desk lamp order since I paid.",order_status
+Hello. I cannot log in to my account. This is urgent.,account_access
+"Hi, Can our store in Boise become a reseller? Thanks.",wholesale_inquiry
+"Hi, When I click pay on the cart nothing happens. Thanks.",website_bug
+This is not the phone case on my receipt. This is urgent.,wrong_item
+Quick question. My coffee grinder arrived cracked. Please help.,damaged_item
+Hello. I changed my email and now I cannot sign in. Please help.,account_access
+Can I return a backpack that I opened five days ago? Thanks.,return_request
+Can you check on the refund for my returned rug?,refund_status
+The backpack is not what I expected and I would like to return it. Thank you!,return_request
+You billed me for the Pro plan after I cancelled it. Thank you!,billing_error
+My card shows a charge of $75 that I do not recognize.,billing_error
+"Hey team, My order for a rug still says processing after ten days.",order_status
+Quick question. Please call me about my rug. Thank you!,subscription_change
+"Hi, This is not the coffee grinder on my receipt. Thank you!",wrong_item
+Hello. The coffee grinder shows out for delivery but nothing arrived in Tulsa. Thanks.,shipping_delay
+My last order from Omaha is a mess. This is urgent.,wrong_item
+Hello. Please call me about my rug.,subscription_change
+The account page will not load on my phone.,website_bug
+"Hi, Is the rug safe to put in the dishwasher?",product_question
+"Hey team, How long do I have to return the coffee grinder?",return_request
+The desk lamp shows out for delivery but nothing arrived in Reno. Thanks.,shipping_delay
+"Hey team, You shipped two of the wrong coffee grinder and none of the right one.",wrong_item
+I need help with my phone case order. Thanks.,order_status
+Hello. We would like a quote for 200 units of the phone case.,wholesale_inquiry
+My refund for the backpack seems to be missing.,refund_status
+Can you tell me when my rug will ship? Thanks.,order_status
+I need help with my blender order.,order_status
+"Hi, I have a problem with the kettle. Thanks.",damaged_item
+I want to send the kettle back. How do I start a return? Please help.,return_request
+"Hey team, How do I turn off auto renewal on my Pro plan? This is urgent.",subscription_change
+Hello. Does the desk lamp come with a warranty? Please help.,product_question
+Quick question. I have a problem with the kettle. Thanks.,account_access
+My last order from Omaha is a mess.,refund_status
+"Hi, Do you offer wholesale prices on orders over $42? Thanks.",wholesale_inquiry
+Do you offer wholesale prices on orders over $42?,wholesale_inquiry
+When I click pay on the cart nothing happens. Thank you!,website_bug
+"Hey team, I was charged $18 twice for one order. This is urgent.",billing_error
+"Hi, What size is the backpack exactly? This is urgent.",product_question
+My card shows a charge of $42 that I do not recognize.,billing_error
+Hello. This is not the yoga mat on my receipt.,wrong_item
+"Hey team, My kettle arrived cracked. This is urgent.",damaged_item
+Hello. Your cart freezes every time I scroll. Thanks.,website_bug
+"Hey team, Something is wrong with my order. This is urgent.",refund_status
+"Hi, The cart will not load on my phone. This is urgent.",website_bug
+"Hey team, Please send me a return label for my coffee grinder. This is urgent.",return_request
+"Hi, My account got locked after a few wrong passwords. Thank you!",account_access
+"Hey team, I cannot log in to my account. Thanks.",account_access
+My order for a coffee grinder still says processing after ten days. This is urgent.,order_status
+Please cancel my Pro subscription at the end of this month. This is urgent.,subscription_change
+Quick question. I ordered a backpack but you sent me something else. Thanks.,wrong_item
+"Hi, The two step code is not working for my account. This is urgent.",account_access
+Hello. The account page shows the wrong price for the phone case. Please help.,website_bug
+Hello. You billed me for the Starter plan after I cancelled it. This is urgent.,billing_error
+"Hey team, Please call me about my blender. This is urgent.",subscription_change
+"Hi, We would like a quote for 200 units of the desk lamp.",wholesale_inquiry
+Do you offer wholesale prices on orders over $260? Please help.,wholesale_inquiry
+The password reset email never arrives. Please help.,account_access
+I need help with my backpack order. Thank you!,shipping_delay
+"Hi, Please call me about my rug. Thank you!",subscription_change
+"Hey team, Can you check on the refund for my returned backpack?",refund_status
+Does the desk lamp come with a warranty? Please help.,product_question
+Is the rug safe to put in the dishwasher? Thank you!,product_question
+Hello. Has my yoga mat order left the warehouse yet?,order_status
+Quick question. What size is the rug exactly? Please help.,product_question
+Can someone look at my account please?,subscription_change
+"Hi, The phone case shows out for delivery but nothing arrived in Reno. Thanks.",shipping_delay
+"Hi, You shipped two of the wrong yoga mat and none of the right one.",wrong_item
+"Hi, I need help with my coffee grinder order.",account_access
+"Hi, What is the minimum order for wholesale phone case stock?",wholesale_inquiry
+Hello. I want to pause my subscription for a few months. Thank you!,subscription_change
+"Hey team, You shipped two of the wrong blender and none of the right one. This is urgent.",wrong_item
+My card shows a charge of $42 that I do not recognize. Please help.,billing_error
+"Hey team, The rug is not what I expected and I would like to return it. Thank you!",return_request
+"Hey team, Why was I charged tax twice on my coffee grinder? Thanks.",billing_error
+Is the desk lamp safe to put in the dishwasher?,product_question
+The phone case stopped working on the first day. This is urgent.,damaged_item
+"Hi, The yoga mat is not what I expected and I would like to return it. This is urgent.",return_request
+"Hey team, Why is shipping to Omaha taking so long? Thanks.",shipping_delay
+"Hey team, Half of the coffee grinder was missing parts when I opened it.",damaged_item
+Hello. What is the minimum order for wholesale coffee grinder stock? Thanks.,wholesale_inquiry
+Quick question. The rug is not what I expected and I would like to return it. Thanks.,return_request
+Please call me about my backpack. This is urgent.,wholesale_inquiry
+"Hey team, My refund for the yoga mat seems to be missing. Thanks.",refund_status
+I was charged $75 twice for one order. Thanks.,billing_error
+"Hey team, Can someone look at my account please? Please help.",return_request
+Quick question. The two step code is not working for my account. This is urgent.,account_access
+"Hi, The account page keeps showing an error. Please help.",website_bug
+"Hi, Can someone look at my account please? This is urgent.",shipping_delay
+"Hey team, Tracking says my yoga mat has been stuck in Boise for seven days.",shipping_delay
+This is not the yoga mat on my receipt. This is urgent.,wrong_item
+"Hey team, Where is my phone case? I ordered it five days ago.",order_status
+Please call me about my yoga mat.,website_bug
+"Hey team, What is the minimum order for wholesale kettle stock? Thank you!",wholesale_inquiry
+"Hey team, The kettle I received has a dent on the side.",damaged_item
+Quick question. Tracking says my backpack has been stuck in Tulsa for five days. This is urgent.,shipping_delay
+Can I upgrade to the Pro plan halfway through the month? Thanks.,subscription_change
+"Hey team, Does the desk lamp come with a warranty? Thank you!",product_question
+"Hi, The coffee grinder I received has a dent on the side. Please help.",damaged_item
+"Hi, My last order from Reno is a mess.",wrong_item
+Hello. Can you check on the refund for my returned coffee grinder? Thank you!,refund_status
+When will the $42 refund show up on my card? This is urgent.,refund_status
+Hello. The invoice says $260 but the checkout said less. Thanks.,billing_error
+Hello. You said my refund was approved but I do not see $75 yet. Thanks.,refund_status
+"Hi, Why was I charged tax twice on my yoga mat? Thanks.",billing_error
+Hello. The rug is not what I expected and I would like to return it. This is urgent.,return_request
+"Hi, Does the coffee grinder come with a warranty?",product_question
+"Hey team, Tracking says my backpack has been stuck in Tulsa for five days. Thanks.",shipping_delay
+Hello. Half of the backpack was missing parts when I opened it. Thanks.,damaged_item
+Do you offer wholesale prices on orders over $75? Please help.,wholesale_inquiry
+Hello. You billed me for the Team plan after I cancelled it. This is urgent.,billing_error
+The two step code is not working for my account. Thanks.,account_access
+Quick question. I cannot log in to my account.,account_access
+Quick question. Your cart freezes every time I scroll. Please help.,website_bug
+"Hi, The login page keeps showing an error.",website_bug
+"Hi, When will the $120 refund show up on my card? Thank you!",refund_status
+Quick question. Is the rug safe to put in the dishwasher? Thanks.,product_question
+Please cancel my Team subscription at the end of this month. Thank you!,subscription_change
+I got someone else's order instead of my backpack. Thanks.,wrong_item
+Hello. How long do I have to return the yoga mat? This is urgent.,return_request
+Will the blender work with a European plug? This is urgent.,product_question
+You shipped two of the wrong kettle and none of the right one.,wrong_item
+You billed me for the Pro plan after I cancelled it. Please help.,billing_error
+Hello. How do I move from the Team plan to a cheaper one? Please help.,subscription_change
+"Hey team, I returned the phone case three days ago and still have no refund. Please help.",refund_status
+How do I turn off auto renewal on my Pro plan?,subscription_change
+"Hi, The password reset email never arrives. Please help.",account_access
+Please send me a return label for my rug.,return_request
+Hello. Is the backpack back in stock soon? Please help.,product_question
+"Hi, The box was crushed and the rug inside is broken.",damaged_item
+I was charged $260 twice for one order. Thanks.,billing_error
+"Hey team, I returned the kettle ten days ago and still have no refund. Please help.",refund_status
+"Hey team, Has my kettle order left the warehouse yet? Thank you!",order_status
+"Hey team, Can someone look at my account please?",damaged_item
+Hello. Please call me about my desk lamp. Please help.,wholesale_inquiry
+"Hey team, Why was I charged tax twice on my rug? Thanks.",billing_error
+"Hi, My refund for the yoga mat seems to be missing. Thank you!",refund_status
+"Hey team, The courier keeps moving the delivery date for my rug. This is urgent.",shipping_delay
+Hello. The courier keeps moving the delivery date for my kettle. This is urgent.,shipping_delay
+Hello. Can you check on the refund for my returned rug? Thank you!,refund_status
+Hello. Is the kettle safe to put in the dishwasher? Thank you!,product_question
+Hello. I have a problem with the desk lamp. Thanks.,damaged_item
+Hello. Something is wrong with my order. This is urgent.,product_question
+"Hi, I need help with my kettle order.",wrong_item
+Hello. My account got locked after a few wrong passwords. This is urgent.,account_access
+How long do I have to return the coffee grinder? Thanks.,return_request
+The courier keeps moving the delivery date for my blender. Thanks.,shipping_delay
+Can you tell me when my desk lamp will ship? Please help.,order_status
+My order for a desk lamp still says processing after seven days. Please help.,order_status
+"Hi, My phone case arrived cracked. Thanks.",damaged_item
+"Hi, Please send me a return label for my kettle. Thanks.",return_request
+I have not heard anything about my blender order since I paid. Thank you!,order_status
+The password reset email never arrives. Thank you!,account_access
+Hello. The login page will not load on my phone. Please help.,website_bug
+Has my desk lamp order left the warehouse yet?,order_status
+Quick question. My package was due last week and it is still not here. Please help.,shipping_delay
+"Hi, I changed my email and now I cannot sign in. This is urgent.",account_access
+The backpack is not what I expected and I would like to return it. Please help.,return_request
+Please cancel my Starter subscription at the end of this month.,subscription_change
+"Hi, Please call me about my kettle. Please help.",wholesale_inquiry
+Hello. You billed me for the Pro plan after I cancelled it. Thank you!,billing_error
+Please call me about my coffee grinder.,account_access
+Please cancel my Pro subscription at the end of this month.,subscription_change
+Quick question. The package had the wrong color yoga mat in it. Please help.,wrong_item
+Hello. The coffee grinder is not what I expected and I would like to return it.,return_request
+Hello. I have a problem with the desk lamp. This is urgent.,return_request
+"Hi, My last order from Boise is a mess. This is urgent.",refund_status
+Why was I charged tax twice on my rug? Thank you!,billing_error
+"Hey team, My account got locked after a few wrong passwords. Please help.",account_access
+"Hi, We run a shop in Tulsa and want to buy the yoga mat in bulk. Thanks.",wholesale_inquiry
+Half of the yoga mat was missing parts when I opened it.,damaged_item
+"Hey team, The courier keeps moving the delivery date for my backpack. Thank you!",shipping_delay
+"Hi, Why is shipping to Austin taking so long? Thanks.",shipping_delay
+"Hey team, Your checkout page freezes every time I scroll. This is urgent.",website_bug
+"Hi, The product page keeps showing an error. Please help.",website_bug
+I want to pause my subscription for a few months. Thanks.,subscription_change
+"Hi, Is the desk lamp safe to put in the dishwasher? Thanks.",product_question
+I have a problem with the backpack. Thank you!,account_access
+"Hi, The kettle stopped working on the first day. This is urgent.",damaged_item
+"Hey team, We would like a quote for 200 units of the kettle. Thanks.",wholesale_inquiry
+I want to pause my subscription for a few months.,subscription_change
+What is the minimum order for wholesale yoga mat stock? Please help.,wholesale_inquiry
+The invoice says $120 but the checkout said less. Thank you!,billing_error
+Hello. My account got locked after a few wrong passwords. Thank you!,account_access
+"Hey team, You said my refund was approved but I do not see $42 yet.",refund_status
+Quick question. The box was crushed and the desk lamp inside is broken.,damaged_item
+The yoga mat I received has a dent on the side. Thanks.,damaged_item
+We would like a quote for 200 units of the coffee grinder. Please help.,wholesale_inquiry
+"Hey team, Where is my phone case? I ordered it five days ago. Thanks.",order_status
+Will the phone case work with a European plug? This is urgent.,product_question
+"Hey team, The password reset email never arrives. Thank you!",account_access
+I have a problem with the rug. Please help.,product_question
+The courier keeps moving the delivery date for my backpack. This is urgent.,shipping_delay
+"Hey team, Tracking says my blender has been stuck in Boise for three days. Thank you!",shipping_delay
+I need help with my kettle order.,website_bug
+Quick question. Can someone look at my account please?,website_bug
+"Hi, Please send me a return label for my rug. Thank you!",return_request
+Quick question. The invoice says $75 but the checkout said less.,billing_error
+Hello. My package was due last week and it is still not here. Please help.,shipping_delay
+I cannot log in to my account. Thank you!,account_access
+Hello. My refund for the blender seems to be missing. Thank you!,refund_status
+I got someone else's order instead of my desk lamp. Thanks.,wrong_item
+When I click pay on the checkout page nothing happens. This is urgent.,website_bug
+Hello. Something is wrong with my order. Thank you!,shipping_delay
+"Hi, Can you check on the refund for my returned phone case? This is urgent.",refund_status
+Quick question. Why is shipping to Austin taking so long?,shipping_delay
+My rug arrived cracked. Thanks.,damaged_item
+"Hi, Has my kettle order left the warehouse yet?",order_status
+"Hi, The coffee grinder is not what I expected and I would like to return it. Thanks.",return_request
+"Hey team, Tracking says my kettle has been stuck in Denver for twelve days. This is urgent.",shipping_delay
+Quick question. I have a problem with the backpack. Thank you!,account_access
+Quick question. The desk lamp is not what I expected and I would like to return it. Thanks.,return_request
+"Hey team, Why is shipping to Boise taking so long? Thank you!",shipping_delay
+Can you tell me when my backpack will ship? Please help.,order_status
+The courier keeps moving the delivery date for my blender. This is urgent.,shipping_delay
+"Hey team, Will the rug work with a European plug? Please help.",product_question
+The product page keeps showing an error. This is urgent.,website_bug
+"Hey team, Can I return a backpack that I opened ten days ago? Please help.",return_request
+"Hey team, Do you offer wholesale prices on orders over $18? Thank you!",wholesale_inquiry
+The courier keeps moving the delivery date for my rug. Thanks.,shipping_delay
+"Hi, The coffee grinder I received has a dent on the side.",damaged_item
+"Hi, I was charged $120 twice for one order. Thank you!",billing_error
+Quick question. You shipped two of the wrong rug and none of the right one. Thanks.,wrong_item
+"Hey team, My order for a kettle still says processing after three days.",order_status
+"Hi, My last order from Omaha is a mess.",damaged_item
+"Hi, Can our store in Boise become a reseller? Thank you!",wholesale_inquiry
+Hello. Has my blender order left the warehouse yet?,order_status
+"Hey team, My last order from Austin is a mess.",wrong_item
+This is not the blender on my receipt. This is urgent.,wrong_item
+Hello. I have not heard anything about my coffee grinder order since I paid. Thanks.,order_status
+"Hey team, Has my backpack order left the warehouse yet? Please help.",order_status
+The password reset email never arrives.,account_access
+My last order from Austin is a mess.,shipping_delay
+I ordered a rug but you sent me something else. Please help.,wrong_item
+The checkout page shows the wrong price for the blender. This is urgent.,website_bug
+"Hey team, Has my backpack order left the warehouse yet?",order_status
+The yoga mat I received has a dent on the side. Please help.,damaged_item
+Hello. I want to send the coffee grinder back. How do I start a return? This is urgent.,return_request
+"Hi, Can you check on the refund for my returned blender? Thank you!",refund_status
+Quick question. I want to send the desk lamp back. How do I start a return? Thanks.,return_request
+Hello. We would like a quote for 200 units of the desk lamp. Please help.,wholesale_inquiry
+"Hey team, Can you tell me when my yoga mat will ship? Thank you!",order_status
+"Hey team, I changed my email and now I cannot sign in. Please help.",account_access
+Hello. I need help with my kettle order. Thanks.,billing_error
+The box was crushed and the coffee grinder inside is broken. This is urgent.,damaged_item
+Hello. My last order from Omaha is a mess. Thank you!,damaged_item
+Has my desk lamp order left the warehouse yet? This is urgent.,order_status
+Hello. Why was I charged tax twice on my blender? This is urgent.,billing_error
+"Hi, I want to pause my subscription for a few months.",subscription_change
+"Hey team, Can you check on the refund for my returned desk lamp? Please help.",refund_status
+"Hi, I want to send the yoga mat back. How do I start a return? Thank you!",return_request
+Quick question. Can our store in Omaha become a reseller? Thanks.,wholesale_inquiry
+My rug arrived cracked.,damaged_item
+"Hi, We would like a quote for 200 units of the blender. Please help.",wholesale_inquiry
+Quick question. I returned the kettle five days ago and still have no refund. Thanks.,refund_status
+Quick question. When I click pay on the cart nothing happens. Thanks.,website_bug
+Hello. The courier keeps moving the delivery date for my rug. Thank you!,shipping_delay
+The invoice says $260 but the checkout said less. Please help.,billing_error
+"Hey team, You said my refund was approved but I do not see $120 yet.",refund_status
+Hello. The cart keeps showing an error. Thank you!,website_bug
+"Hey team, My last order from Austin is a mess. This is urgent.",refund_status
+Quick question. I returned the blender three days ago and still have no refund. Thanks.,refund_status
+"Hey team, Your product page freezes every time I scroll. Thank you!",website_bug
+Hello. Half of the rug was missing parts when I opened it. Thanks.,damaged_item
+My last order from Boise is a mess. Thanks.,website_bug
+"Hi, The password reset email never arrives. Thanks.",account_access
+My last order from Austin is a mess. Please help.,shipping_delay
+What is the minimum order for wholesale blender stock?,wholesale_inquiry
+"Hi, I have a problem with the desk lamp. Please help.",damaged_item
+Hello. Please cancel my Team subscription at the end of this month. Thanks.,subscription_change
+"Hey team, The desk lamp is not what I expected and I would like to return it.",return_request
+Hello. The courier keeps moving the delivery date for my kettle. Please help.,shipping_delay
+The invoice says $18 but the checkout said less. This is urgent.,billing_error
+Quick question. Please send me a return label for my coffee grinder. This is urgent.,return_request
+"Hey team, I changed my email and now I cannot sign in. Thanks.",account_access
+Quick question. Please send me a return label for my yoga mat. Thank you!,return_request
+Hello. Will the yoga mat work with a European plug? Thanks.,product_question
+"Hey team, Half of the phone case was missing parts when I opened it. Thank you!",damaged_item
+I got someone else's order instead of my kettle.,wrong_item
+"Hey team, The package had the wrong color kettle in it.",wrong_item
+"Hi, Has my desk lamp order left the warehouse yet?",order_status
+"Hey team, Please cancel my Starter subscription at the end of this month. Thanks.",subscription_change
+"Hey team, You said my refund was approved but I do not see $18 yet. Thanks.",refund_status
+Hello. Can you tell me when my coffee grinder will ship?,order_status
+I cannot log in to my account.,account_access
+Quick question. My order for a yoga mat still says processing after five days. This is urgent.,order_status
+Quick question. The account page will not load on my phone.,website_bug
+Quick question. I have not heard anything about my desk lamp order since I paid.,order_status
+The yoga mat shows out for delivery but nothing arrived in Denver. Thanks.,shipping_delay
+"Hi, You said my refund was approved but I do not see $120 yet.",refund_status
+Has my phone case order left the warehouse yet?,order_status
+Quick question. Will the phone case work with a European plug?,product_question
+"Hi, We run a shop in Austin and want to buy the blender in bulk. Thank you!",wholesale_inquiry
+Hello. How do I move from the Team plan to a cheaper one? Thank you!,subscription_change
+We would like a quote for 200 units of the phone case. Please help.,wholesale_inquiry
+Hello. I need help with my yoga mat order. Thank you!,damaged_item
+The cart will not load on my phone. Thank you!,website_bug
+"Hey team, Can I return a desk lamp that I opened five days ago?",return_request
+"Hi, How do I turn off auto renewal on my Team plan?",subscription_change
+"Hi, Something is wrong with my order.",billing_error
+Hello. I have a problem with the rug.,order_status
+"Hey team, The yoga mat stopped working on the first day. This is urgent.",damaged_item
+"Hey team, I returned the backpack twelve days ago and still have no refund. Thank you!",refund_status
+My order for a rug still says processing after twelve days. Thank you!,order_status
+"Hi, I ordered a yoga mat but you sent me something else.",wrong_item
+Please cancel my Team subscription at the end of this month. Thanks.,subscription_change
+Can you check on the refund for my returned blender?,refund_status
+"Hi, How long do I have to return the blender? Thank you!",return_request
+Hello. What is the minimum order for wholesale kettle stock? Please help.,wholesale_inquiry
+Quick question. Does the phone case come with a warranty?,product_question
+What size is the phone case exactly? Thank you!,product_question
+"Hey team, The yoga mat shows out for delivery but nothing arrived in Reno. Thank you!",shipping_delay
+Quick question. Why was I charged tax twice on my phone case?,billing_error
+"Hi, Does the yoga mat come with a warranty? Please help.",product_question
+Please call me about my backpack. Please help.,product_question
+Can our store in Reno become a reseller?,wholesale_inquiry
+"Hey team, Can I return a backpack that I opened five days ago? Thanks.",return_request
+Hello. The phone case is not what I expected and I would like to return it. Please help.,return_request
+Please call me about my phone case. Please help.,website_bug
+"Hey team, How long do I have to return the yoga mat?",return_request
+The invoice says $18 but the checkout said less.,billing_error
+Please call me about my blender.,account_access
+"Hi, Please call me about my backpack. This is urgent.",account_access
+My last order from Tulsa is a mess.,website_bug
+"Hi, The password reset email never arrives.",account_access
+I need help with my desk lamp order.,product_question
+Quick question. I returned the backpack ten days ago and still have no refund. Thank you!,refund_status
+Your checkout page freezes every time I scroll. Thanks.,website_bug
+"Hey team, My card shows a charge of $42 that I do not recognize. Please help.",billing_error
+Hello. We would like a quote for 200 units of the blender.,wholesale_inquiry
+"Hi, My account got locked after a few wrong passwords.",account_access
+Quick question. I need help with my phone case order. This is urgent.,account_access
+"Hey team, The package had the wrong color yoga mat in it. This is urgent.",wrong_item
+Quick question. We run a shop in Tulsa and want to buy the kettle in bulk.,wholesale_inquiry
+Hello. Please cancel my Starter subscription at the end of this month. Thanks.,subscription_change
+Tracking says my backpack has been stuck in Boise for five days. Thanks.,shipping_delay
+"Hi, The courier keeps moving the delivery date for my rug.",shipping_delay
+Quick question. Can you check on the refund for my returned kettle?,refund_status
+Half of the rug was missing parts when I opened it. Thank you!,damaged_item
+"Hi, I want to send the coffee grinder back. How do I start a return?",return_request
+Hello. Something is wrong with my order.,billing_error
+Can I upgrade to the Starter plan halfway through the month?,subscription_change
+Hello. My last order from Omaha is a mess. Thanks.,order_status
+Hello. How long do I have to return the coffee grinder? Please help.,return_request
+"Hey team, You shipped two of the wrong desk lamp and none of the right one. This is urgent.",wrong_item
+Quick question. Something is wrong with my order.,subscription_change
+The kettle stopped working on the first day.,damaged_item
+Quick question. When will the $18 refund show up on my card?,refund_status
+Hello. My card shows a charge of $18 that I do not recognize. Please help.,billing_error
+Quick question. Why was I charged tax twice on my coffee grinder? Please help.,billing_error
+"Hi, Please call me about my phone case.",damaged_item
+Quick question. How do I turn off auto renewal on my Team plan? Thanks.,subscription_change
+Hello. I need help with my coffee grinder order.,account_access
+"Hi, You billed me for the Pro plan after I cancelled it.",billing_error
+"Hi, Is the desk lamp safe to put in the dishwasher? Thank you!",product_question
+Quick question. Please call me about my rug.,website_bug
+"Hey team, I got someone else's order instead of my kettle. This is urgent.",wrong_item
+Quick question. Do you offer wholesale prices on orders over $42? Thank you!,wholesale_inquiry
+Will the desk lamp work with a European plug? Please help.,product_question
+"Hi, Can you check on the refund for my returned rug? Thank you!",refund_status
+"Hey team, How do I move from the Starter plan to a cheaper one? This is urgent.",subscription_change
+Hello. I need help with my coffee grinder order. This is urgent.,account_access
+"Hey team, Please call me about my backpack. Thank you!",product_question
+"Hey team, Tracking says my phone case has been stuck in Omaha for five days.",shipping_delay
+"Hi, My card shows a charge of $120 that I do not recognize.",billing_error
+We would like a quote for 200 units of the coffee grinder. Thanks.,wholesale_inquiry
+The account page keeps showing an error. This is urgent.,website_bug
+"Hi, My yoga mat arrived cracked. Thanks.",damaged_item
+Please send me a return label for my backpack. Thanks.,return_request
+Hello. When I click pay on the checkout page nothing happens. Please help.,website_bug
+I changed my email and now I cannot sign in. This is urgent.,account_access
+My card shows a charge of $18 that I do not recognize. This is urgent.,billing_error
+Hello. Please send me a return label for my desk lamp. This is urgent.,return_request
+My last order from Reno is a mess. Thanks.,wrong_item
+"Hi, Has my phone case order left the warehouse yet? This is urgent.",order_status
+"Hey team, My last order from Reno is a mess. Please help.",refund_status
+The cart shows the wrong price for the coffee grinder. Thank you!,website_bug
+Hello. I was charged $18 twice for one order. This is urgent.,billing_error
+My order for a backpack still says processing after five days. This is urgent.,order_status
+"Hi, Something is wrong with my order. Thanks.",return_request
+How do I turn off auto renewal on my Pro plan? Thanks.,subscription_change
+"Hey team, The two step code is not working for my account. Please help.",account_access
+Quick question. When will the $75 refund show up on my card? Thanks.,refund_status
+My package was due last week and it is still not here. This is urgent.,shipping_delay
+Hello. Can you tell me when my backpack will ship?,order_status
+Hello. Can someone look at my account please? Thank you!,website_bug
+My refund for the desk lamp seems to be missing. This is urgent.,refund_status
+Hello. Can someone look at my account please?,wrong_item
+"Hi, When will the $42 refund show up on my card? Thank you!",refund_status
+"Hi, Can you tell me when my backpack will ship? Thanks.",order_status
+Hello. Half of the rug was missing parts when I opened it.,damaged_item
+Quick question. Why was I charged tax twice on my kettle?,billing_error
+"Hi, The rug stopped working on the first day. Please help.",damaged_item
+How do I move from the Pro plan to a cheaper one? Thanks.,subscription_change
+The two step code is not working for my account. Thank you!,account_access
+Quick question. Please send me a return label for my kettle. This is urgent.,return_request
+"Hey team, My last order from Omaha is a mess.",shipping_delay
+"Hi, The rug shows out for delivery but nothing arrived in Boise.",shipping_delay
+"Hi, Please cancel my Pro subscription at the end of this month. Thanks.",subscription_change
+Can you tell me when my coffee grinder will ship? Please help.,order_status
+"Hey team, How do I turn off auto renewal on my Team plan?",subscription_change
+We run a shop in Austin and want to buy the kettle in bulk. Thanks.,wholesale_inquiry
+"Hey team, Has my blender order left the warehouse yet? Please help.",order_status
+Hello. I need help with my yoga mat order.,billing_error
+"Hi, Has my blender order left the warehouse yet? This is urgent.",order_status
+Hello. My last order from Austin is a mess. Thank you!,subscription_change
+"Hi, The blender shows out for delivery but nothing arrived in Omaha.",shipping_delay
+Hello. We would like a quote for 200 units of the coffee grinder. Thank you!,wholesale_inquiry
+Can our store in Omaha become a reseller?,wholesale_inquiry
+Will the coffee grinder work with a European plug?,product_question
+"Hey team, I was charged $260 twice for one order.",billing_error
+How do I move from the Team plan to a cheaper one? This is urgent.,subscription_change
+"Hi, My last order from Tulsa is a mess. Thanks.",damaged_item
+Quick question. The blender I received has a dent on the side. This is urgent.,damaged_item
+"Hi, I want to send the backpack back. How do I start a return?",return_request
+"Hey team, The cart keeps showing an error. Please help.",website_bug
+Is the phone case safe to put in the dishwasher?,product_question
+The two step code is not working for my account.,account_access
+I cannot log in to my account. Please help.,account_access
+Tracking says my rug has been stuck in Reno for twelve days.,shipping_delay
+My account got locked after a few wrong passwords.,account_access
+Is the rug back in stock soon? Please help.,product_question
+"Hey team, I want to pause my subscription for a few months. Please help.",subscription_change
+Hello. Why was I charged tax twice on my yoga mat?,billing_error
+The kettle shows out for delivery but nothing arrived in Omaha.,shipping_delay
+You shipped two of the wrong coffee grinder and none of the right one. This is urgent.,wrong_item
+"Hey team, You billed me for the Starter plan after I cancelled it. This is urgent.",billing_error
+"Hey team, The checkout page will not load on my phone. Thank you!",website_bug
+"Hey team, My last order from Tulsa is a mess.",order_status
+Quick question. Can you tell me when my desk lamp will ship? Please help.,order_status
+"Hi, Can someone look at my account please? Please help.",subscription_change
+"Hi, You shipped two of the wrong yoga mat and none of the right one. Thank you!",wrong_item
+The backpack stopped working on the first day.,damaged_item
+What is the minimum order for wholesale kettle stock? This is urgent.,wholesale_inquiry
+"Hey team, The blender stopped working on the first day.",damaged_item
+Quick question. What is the minimum order for wholesale yoga mat stock? Thanks.,wholesale_inquiry
+"Hey team, What is the minimum order for wholesale backpack stock? Thank you!",wholesale_inquiry
+Half of the desk lamp was missing parts when I opened it. This is urgent.,damaged_item
+"Hey team, My last order from Boise is a mess.",website_bug
+"Hi, The invoice says $42 but the checkout said less.",billing_error
+Hello. I want to pause my subscription for a few months.,subscription_change
+Something is wrong with my order.,billing_error
+"Hey team, What is the minimum order for wholesale phone case stock? Thank you!",wholesale_inquiry
+The box was crushed and the desk lamp inside is broken.,damaged_item
+Will the backpack work with a European plug? Thank you!,product_question
+Hello. The account page will not load on my phone. This is urgent.,website_bug
+"Hey team, This is not the coffee grinder on my receipt. This is urgent.",wrong_item
+Hello. We would like a quote for 200 units of the yoga mat. Thanks.,wholesale_inquiry
+"Hey team, I returned the phone case twelve days ago and still have no refund. Please help.",refund_status
+"Hey team, I got someone else's order instead of my yoga mat.",wrong_item
+"Hi, Can you tell me when my phone case will ship?",order_status
+"Hi, My card shows a charge of $42 that I do not recognize.",billing_error
+You said my refund was approved but I do not see $75 yet. Please help.,refund_status
+What size is the rug exactly?,product_question
+"Hey team, The box was crushed and the blender inside is broken. Thank you!",damaged_item
+"Hi, What size is the coffee grinder exactly?",product_question
+"Hi, Where is my coffee grinder? I ordered it ten days ago. Thanks.",order_status
+"Hey team, Will the desk lamp work with a European plug? Thank you!",product_question
+Can someone look at my account please? Please help.,damaged_item
+When will the $42 refund show up on my card?,refund_status
+Quick question. Please cancel my Team subscription at the end of this month.,subscription_change
+The checkout page will not load on my phone. This is urgent.,website_bug
+"Hey team, Please call me about my kettle.",product_question
+Can our store in Boise become a reseller? Thanks.,wholesale_inquiry
+Quick question. The kettle shows out for delivery but nothing arrived in Tulsa. Thanks.,shipping_delay
+How do I move from the Pro plan to a cheaper one?,subscription_change
+"Hi, I have a problem with the rug. This is urgent.",wrong_item
+Quick question. I need help with my kettle order. This is urgent.,shipping_delay
+Hello. Has my backpack order left the warehouse yet? Please help.,order_status
+Hello. The package had the wrong color yoga mat in it. Thanks.,wrong_item
+Quick question. When I click pay on the cart nothing happens.,website_bug
+"Hey team, Please call me about my yoga mat. Please help.",product_question
+I have not heard anything about my desk lamp order since I paid.,order_status
+Quick question. I changed my email and now I cannot sign in. Thanks.,account_access
+Hello. Do you offer wholesale prices on orders over $260? Please help.,wholesale_inquiry
+I need help with my coffee grinder order. This is urgent.,shipping_delay
+Hello. My last order from Austin is a mess. This is urgent.,return_request
+My phone case arrived cracked.,damaged_item
+The product page will not load on my phone.,website_bug
+Something is wrong with my order. Please help.,shipping_delay
+"Hi, I want to pause my subscription for a few months. Please help.",subscription_change
+This is not the desk lamp on my receipt.,wrong_item
+"Hey team, The package had the wrong color backpack in it.",wrong_item
+Quick question. How long do I have to return the phone case?,return_request
+Please send me a return label for my kettle.,return_request
+"Hey team, My card shows a charge of $18 that I do not recognize. Thanks.",billing_error
+"Hi, I was charged $42 twice for one order.",billing_error
+How do I turn off auto renewal on my Starter plan?,subscription_change
+Quick question. I have a problem with the rug. Please help.,order_status
+Hello. Can our store in Reno become a reseller? Thank you!,wholesale_inquiry
+"Hey team, How do I move from the Starter plan to a cheaper one? Please help.",subscription_change
+Your account page freezes every time I scroll. Please help.,website_bug
+Can our store in Denver become a reseller? Thanks.,wholesale_inquiry
+Quick question. How long do I have to return the kettle? This is urgent.,return_request
+"Hi, My last order from Omaha is a mess. Thanks.",wrong_item
+"Hi, I was charged $18 twice for one order.",billing_error
+The account page keeps showing an error. Thanks.,website_bug
