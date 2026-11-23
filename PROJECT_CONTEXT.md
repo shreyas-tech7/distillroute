@@ -29,8 +29,8 @@ Python 3.11+, numpy only at runtime. pytest and ruff for development. FastEmbed 
 - `src/distillroute/bench.py`: the pipeline, the curve and the timings.
 - `src/distillroute/readme.py`: README blocks and `docs/index.html` from results.
 - `data/`: BANKING77 (CC BY 4.0), the synthetic CSV, `SOURCES.json`, `prices.json`.
-- `fixtures/teacher/`: recorded teacher responses by request hash (empty until record mode runs).
-- `tests/fixtures/teacher/`: fake recorded responses for tests only.
+- `fixtures/teacher/<dataset>/<model>/`: recorded teacher responses by request hash, with `model.txt` (empty until record mode runs).
+- `tests/fixtures/teacher/synthetic/fixture-model/`: fake recorded responses for tests only, written by `scripts/make_test_fixtures.py`.
 - `results/`: the result files every README number comes from.
 
 ## Rules

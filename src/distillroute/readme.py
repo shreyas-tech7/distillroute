@@ -12,6 +12,8 @@ import re
 from pathlib import Path
 from statistics import mean
 
+from . import costs
+
 ROOT = Path(__file__).resolve().parents[2]
 MAIN = "results/banking77-b800-seed0.json"
 SECOND = "results/banking77-b800-seed1.json"
@@ -22,7 +24,16 @@ TIMING = "results/timings.json"
 RECORD = "results/record-status.json"
 FILES = ["README.md", "docs/INTERVIEW_QA.md", "docs/WALKTHROUGH.md"]
 BLOCK = re.compile(r"(<!-- gen:(\w+) -->\n)(.*?)(<!-- /gen:\2 -->)", re.S)
-NAMES = {"tfidf": "TF-IDF + logistic regression", "embed-hash": "Hash embedding + logistic regression"}
+NAMES = {
+    "tfidf": "TF-IDF + logistic regression",
+    "embed-hash": "Hash embedding + logistic regression",
+    "embed-fastembed": "FastEmbed + logistic regression",
+}
+
+
+def nm(key: str) -> str:
+    """The display name of a student, with the key itself for one this file does not know."""
+    return NAMES.get(key, NAMES["embed-hash"] if key == "embed" else key)
 
 
 def load(rel: str) -> dict:
@@ -48,7 +59,8 @@ def table(head: list[str], rows: list[list[str]]) -> list[str]:
 
 
 def ordered(res: dict) -> list:
-    return [(k, res["rows"][k]) for k in NAMES if k in res["rows"]]
+    known = [k for k in NAMES if k in res["rows"]]
+    return [(k, res["rows"][k]) for k in known + sorted(set(res["rows"]) - set(known))]
 
 
 def main_rows(res: dict) -> list[list[str]]:
@@ -67,7 +79,7 @@ def main_rows(res: dict) -> list[list[str]]:
         s = v["student"]
         rows.append(
             [
-                NAMES[key],
+                nm(key),
                 ci(s["accuracy"], s["accuracy_ci"]),
                 ci(s["macro_f1"], s["macro_f1_ci"]),
                 usd(s["usd_per_10k"]),
@@ -81,7 +93,7 @@ def main_rows(res: dict) -> list[list[str]]:
         lat = f"{h['p50_ms']:.2f} ms" if h["p50_ms"] is not None else "LLM latency (not measured)"
         rows.append(
             [
-                f"Hybrid, {NAMES[key]} first",
+                f"Hybrid, {nm(key)} first",
                 f"{p(lo['accuracy'])} to {p(hi['accuracy'])} (bounds)",
                 f"{p(lo['macro_f1'])} to {p(hi['macro_f1'])} (bounds)",
                 usd(h["usd_per_10k"]) + " (estimate)",
@@ -108,11 +120,19 @@ def hybrid_rows(res: dict) -> list[list[str]]:
         h = v["hybrid"]
         out.append(
             [
-                NAMES[key],
+                nm(key),
                 f"{h['threshold']:.2f}",
-                p(h["dev_kept_accuracy"]),
+                (
+                    f"{p(h['dev_kept_accuracy'])}, lower bound {p(h['dev_kept_accuracy_lo'])}"
+                    if h["dev_kept_share"]
+                    else "keeps none"
+                )
+                + ("" if h["dev_target_met"] else ", target not met"),
                 p(1 - h["llm_share"]),
-                f"{h['kept_correct']}/{h['kept']} = {ci(h['kept_correct'] / max(h['kept'], 1), h['kept_accuracy_ci'])}",
+                f"{h['kept_correct']}/{h['kept']} = {ci(h['kept_correct'] / h['kept'], h['kept_accuracy_ci'])}"
+                if h["kept"]
+                else "keeps none",
+                ("yes" if h["test_target_met"] else "no") if h["kept"] else "nothing kept",
             ]
         )
     return out
@@ -121,7 +141,8 @@ def hybrid_rows(res: dict) -> list[list[str]]:
 def meta_line(res: dict, rel: str) -> str:
     m = res["meta"]
     return (
-        f"Run of {m['date']}, seed {m['seed']}, {m['budget']} labeled training texts, labels: {m['labels']}. "
+        f"Run of {m['date']}, seed {m['seed']}, {m['budget']} labeled training texts and {m['dev_labels']} "
+        f"labeled dev texts for the threshold ({m['label_count']} labels in all), labels: {m['labels']}. "
         f"Students: numpy, {m['embedder']}. Scored on the full test split ({m['test']} tickets, {m['classes']} intents). "
         f"CPU: {m['cpu']}, cores {m['cores']}. File `{rel}`."
     )
@@ -142,7 +163,7 @@ def curve_rows(cur: dict) -> list[list[str]]:
             f1s = [x["macro_f1"] for x in pts]
             rows.append(
                 [
-                    NAMES[student],
+                    nm(student),
                     str(n),
                     p(mean(accs)),
                     f"{p(min(accs))} to {p(max(accs))}",
@@ -158,7 +179,7 @@ def noise_rows(cur: dict) -> list[list[str]]:
     for pt in cur["noise"]:
         by.setdefault((pt["student"], pt["rate"]), []).append(pt)
     return [
-        [NAMES[s], p(r, 0), p(mean(x["accuracy"] for x in pts)), p(mean(x["macro_f1"] for x in pts))]
+        [nm(s), p(r, 0), p(mean(x["accuracy"] for x in pts)), p(mean(x["macro_f1"] for x in pts))]
         for (s, r), pts in sorted(by.items(), key=lambda kv: (list(NAMES).index(kv[0][0]), kv[0][1]))
     ]
 
@@ -167,9 +188,25 @@ def why(status: dict) -> str:
     err = status.get("error", "")
     if "403" in err and "proxy" in err:
         return "the network proxy refused the host"
+    if "is not set" in err:
+        return f"no {err.split(': ')[-1].split(' is')[0]} in the environment, so no request was sent"
     if "HTTP" in err:
         return f"the host answered {err.split('answered ')[-1]} with no key"
     return err or f"{status.get('calls', 0)} calls"
+
+
+def kept_sentence(h: dict) -> str:
+    """One sentence on what the hybrid sends to the LLM and how right the kept tickets are on test."""
+    if not h["kept"]:
+        return (
+            f"No confidence threshold passes the {p(h['target'], 0)} rule on dev, so its hybrid sends every "
+            f"ticket to the LLM."
+        )
+    met = "meets" if h["test_target_met"] else "misses"
+    return (
+        f"Its hybrid sends {p(h['llm_share'], 0)} of tickets to the LLM, and the tickets it keeps are "
+        f"{p(h['kept_accuracy'])} right on test, so it {met} the {p(h['target'], 0)} target."
+    )
 
 
 def blocks() -> dict[str, str]:
@@ -187,9 +224,16 @@ def blocks() -> dict[str, str]:
                 "Kept accuracy on dev",
                 "Kept share on test",
                 "Kept accuracy on test (95% CI)",
+                f"Test reaches {p(res['rows']['tfidf']['hybrid']['target'], 0)}",
             ],
             hybrid_rows(res),
         )
+        + [
+            "",
+            f"Rule: the lowest threshold whose Wilson lower bound of kept accuracy on the "
+            f"{res['meta']['dev_labels']} dev tickets reaches {p(res['rows']['tfidf']['hybrid']['target'], 0)}. "
+            f"When no threshold meets it, the router takes the highest one and the table says the target is not met.",
+        ]
     )
     b["second"] = "\n".join(table(HEAD, main_rows(sec)) + ["", meta_line(sec, SECOND)])
     b["full"] = "\n".join(table(HEAD, main_rows(full)) + ["", meta_line(full, FULL)])
@@ -227,7 +271,7 @@ def blocks() -> dict[str, str]:
             ["Student", "Training texts", "Train time", "Peak memory", "Cores"],
             [
                 [
-                    NAMES.get(s["student"], NAMES["embed-hash"] if s["student"] == "embed" else s["student"]),
+                    nm(s["student"]),
                     str(s["n"]),
                     f"{s['seconds']:.1f} s",
                     f"{s['peak_mb']:.0f} MB",
@@ -248,29 +292,34 @@ def blocks() -> dict[str, str]:
         f"characters per token. One call has about {llm['mean_input_tokens']:.0f} input tokens, and the 77 label "
         f"names are most of them. Student price: the {pr['compute']['name']} at "
         f"${pr['compute']['usd_per_minute']} per minute, read on {pr['compute']['read_on']} from "
-        f"{pr['compute']['source']}, times the measured p50 time per ticket. Labeling the {res['meta']['budget']} "
-        f"training texts once costs about {usd(llm['usd_per_10k'] * res['meta']['budget'] / 10_000)} at the same "
-        f"LLM price. These are comparison prices, not a bill."
+        f"{pr['compute']['source']}, times the measured mean time per ticket. Two one-time costs are left out of "
+        f"the per-ticket numbers. Labeling the {res['meta']['label_count']} training and dev texts once costs about "
+        f"{usd(llm['usd_per_10k'] * res['meta']['label_count'] / 10_000)} at the same LLM price. Training both "
+        f"students on the full split takes {sum(x['seconds'] for x in tim['students']):.0f} s, about "
+        f"{usd(costs.compute_cost(sum(x['seconds'] for x in tim['students']), pr))} of runner time. "
+        f"These are comparison prices, not a bill."
     )
     rr = " ".join(f"{k} ({v['model']}): {v['result']}, {why(v)}." for k, v in sorted(rec.items()))
     b["record"] = f"Record mode on {next(iter(rec.values()))['date']}. {rr} File `{RECORD}`."
     src = json.loads((ROOT / "data" / "SOURCES.json").read_text())["datasets"]["banking77"]
+    drop = res["meta"]["train_test_overlap_dropped"]
     b["dataset"] = (
-        f"BANKING77 holds {res['meta']['train'] + res['meta']['dev'] + 7 + res['meta']['test']} customer "
+        f"BANKING77 holds {res['meta']['train'] + res['meta']['dev'] + drop + res['meta']['test']} customer "
         f"service queries in {res['meta']['classes']} intents. It is licensed under {src['license']}. "
         f"Attribution: {src['attribution']} Source: {src['source']}. Downloaded on {src['downloaded_on']}, "
-        f"unchanged, with SHA-256 hashes in `data/SOURCES.json`. The official train file repeats 7 test texts, "
-        f"and distillroute drops those 7 before it splits off the development set."
+        f"unchanged, with SHA-256 hashes in `data/SOURCES.json`. The official train file repeats {drop} test texts, "
+        f"and distillroute drops those {drop} before it splits off the development set."
     )
     best_key = max(res["rows"], key=lambda k: res["rows"][k]["student"]["accuracy"])
-    best = res["rows"][best_key]["student"]
-    fb = full["rows"]["tfidf"]
+    best, bh = res["rows"][best_key]["student"], res["rows"][best_key]["hybrid"]
+    fkey = max(full["rows"], key=lambda k: full["rows"][k]["student"]["accuracy"])
+    fb = full["rows"][fkey]
     b["headline"] = (
-        f"With {res['meta']['budget']} labels, the best student gets {p(best['accuracy'])} accuracy on the "
-        f"BANKING77 test split, and the hybrid has to send {p(res['rows']['embed-hash']['hybrid']['llm_share'], 0)} "
-        f"of tickets to the LLM to keep the student's share at the {p(res['rows']['tfidf']['hybrid']['target'], 0)} "
-        f"target. With all {full['meta']['budget']} training labels, TF-IDF gets {p(fb['student']['accuracy'])} "
-        f"and the hybrid sends {p(fb['hybrid']['llm_share'], 0)}."
+        f"With {res['meta']['label_count']} labels ({res['meta']['budget']} to train, {res['meta']['dev_labels']} "
+        f"to set the threshold), the best student, {nm(best_key)}, gets {p(best['accuracy'])} accuracy on the "
+        f"BANKING77 test split. {kept_sentence(bh)} With all {full['meta']['budget']} training labels and "
+        f"{full['meta']['dev_labels']} dev labels, {nm(fkey)} gets {p(fb['student']['accuracy'])}. "
+        f"{kept_sentence(fb['hybrid'])}"
     )
     return b
 
@@ -316,7 +365,7 @@ def svg_curve(cur: dict, width: int = 640, height: int = 320) -> str:
         parts.append(f'<polyline points="{path}" fill="none" stroke="{c}" stroke-width="2"/>')
         parts += [f'<circle cx="{x:.1f}" cy="{y:.1f}" r="3" fill="{c}"/>' for x, y in pts]
         parts.append(
-            f'<text x="{x0 + 10}" y="{y1 + 14 + 14 * i}" font-size="12" fill="{c}">{html.escape(NAMES[student])}</text>'
+            f'<text x="{x0 + 10}" y="{y1 + 14 + 14 * i}" font-size="12" fill="{c}">{html.escape(nm(student))}</text>'
         )
     parts.append(
         f'<text x="{(x0 + x1) / 2:.0f}" y="{height - 6}" text-anchor="middle" font-size="11">labeled training examples (log scale)</text>'

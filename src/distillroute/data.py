@@ -34,6 +34,7 @@ class Dataset:
     train: Split
     dev: Split
     test: Split
+    dropped: int = 0
 
 
 def sha256(path: Path) -> str:
@@ -95,9 +96,9 @@ def banking77(seed: int = 0, dev_frac: float = 0.15, root: Path = DATA) -> Datas
     base = root / "banking77"
     labels = json.loads((base / "categories.json").read_text())
     test = read_csv(base / "test.csv")
-    full, _ = drop_overlap(read_csv(base / "train.csv"), test)
+    full, dropped = drop_overlap(read_csv(base / "train.csv"), test)
     train, dev = stratified_split(full, dev_frac, seed)
-    return Dataset("banking77", labels, train, dev, test)
+    return Dataset("banking77", labels, train, dev, test, dropped)
 
 
 def synthetic(seed: int = 0, root: Path = DATA) -> Dataset:

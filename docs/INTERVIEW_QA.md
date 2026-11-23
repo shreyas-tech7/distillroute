@@ -9,7 +9,7 @@ It trains a small classifier on labels from an LLM, lets the classifier answer t
 **2. What did the main run find?**
 
 <!-- gen:headline -->
-With 800 labels, the best student gets 65.2% accuracy on the BANKING77 test split, and the hybrid has to send 75% of tickets to the LLM to keep the student's share at the 95% target. With all 8498 training labels, TF-IDF gets 86.0% and the hybrid sends 30%.
+With 1100 labels (800 to train, 300 to set the threshold), the best student, Hash embedding + logistic regression, gets 65.2% accuracy on the BANKING77 test split. No confidence threshold passes the 95% rule on dev, so its hybrid sends every ticket to the LLM. With all 8498 training labels and 1498 dev labels, TF-IDF + logistic regression gets 86.0%. Its hybrid sends 37% of tickets to the LLM, and the tickets it keeps are 95.7% right on test, so it meets the 95% target.
 <!-- /gen:headline -->
 
 **3. When does distillation pay off?**
@@ -18,13 +18,15 @@ When the task is narrow, the label set is fixed and you have enough labels per c
 
 **4. How does the threshold trade cost against accuracy?**
 
-A lower threshold lets the student answer more tickets. That saves LLM calls, but the student makes more mistakes. `router.pick_threshold()` takes the lowest threshold whose kept accuracy on the dev split reaches 95%. The dev sweep is drawn in `docs/index.html`.
+A lower threshold lets the student answer more tickets. That saves LLM calls, but the student makes more mistakes. `router.pick_threshold()` takes the lowest threshold whose Wilson lower bound of kept accuracy on the labeled dev sample reaches 95%. The lower bound leaves a margin for a small dev sample. With few dev labels no threshold may pass, and then every ticket goes to the LLM. The dev sweep is drawn in `docs/index.html`.
 
 <!-- gen:hybrid -->
-| Student first | Threshold (from dev) | Kept accuracy on dev | Kept share on test | Kept accuracy on test (95% CI) |
-| --- | --- | --- | --- | --- |
-| TF-IDF + logistic regression | 0.70 | 95.2% | 9.7% | 284/298 = 95.3% (92.3% to 97.2%) |
-| Hash embedding + logistic regression | 0.52 | 95.2% | 25.4% | 729/782 = 93.2% (91.2% to 94.8%) |
+| Student first | Threshold (from dev) | Kept accuracy on dev | Kept share on test | Kept accuracy on test (95% CI) | Test reaches 95% |
+| --- | --- | --- | --- | --- | --- |
+| TF-IDF + logistic regression | 0.99 | keeps none, target not met | 0.0% | keeps none | nothing kept |
+| Hash embedding + logistic regression | 0.99 | keeps none, target not met | 0.0% | keeps none | nothing kept |
+
+Rule: the lowest threshold whose Wilson lower bound of kept accuracy on the 300 dev tickets reaches 95%. When no threshold meets it, the router takes the highest one and the table says the target is not met.
 <!-- /gen:hybrid -->
 
 **5. Why macro-F1 with 77 classes?**
@@ -65,7 +67,7 @@ The test file is never passed to training, tuning or threshold choice. `test_dev
 **10. How is the cost computed?**
 
 <!-- gen:cost -->
-LLM price: `gemini-3.1-flash-lite` at $0.25 per million input tokens and $1.5 per million output tokens (paid tier, Standard, text input), read on 2026-11-21 from https://ai.google.dev/gemini-api/docs/pricing. Tokens are estimated at 4 characters per token. One call has about 464 input tokens, and the 77 label names are most of them. Student price: the GitHub-hosted Linux 2-core (x64) runner at $0.006 per minute, read on 2026-11-21 from https://docs.github.com/en/billing/reference/actions-runner-pricing, times the measured p50 time per ticket. Labeling the 800 training texts once costs about $0.10 at the same LLM price. These are comparison prices, not a bill.
+LLM price: `gemini-3.1-flash-lite` at $0.25 per million input tokens and $1.5 per million output tokens (paid tier, Standard, text input), read on 2026-11-21 from https://ai.google.dev/gemini-api/docs/pricing. Tokens are estimated at 4 characters per token. One call has about 464 input tokens, and the 77 label names are most of them. Student price: the GitHub-hosted Linux 2-core (x64) runner at $0.006 per minute, read on 2026-11-21 from https://docs.github.com/en/billing/reference/actions-runner-pricing, times the measured mean time per ticket. Two one-time costs are left out of the per-ticket numbers. Labeling the 1100 training and dev texts once costs about $0.14 at the same LLM price. Training both students on the full split takes 44 s, about $0.004420 of runner time. These are comparison prices, not a bill.
 <!-- /gen:cost -->
 
 **11. Why is the hybrid accuracy a range?**

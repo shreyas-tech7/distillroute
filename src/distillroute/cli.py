@@ -26,9 +26,13 @@ def cmd_hashes(a) -> int:
     return 0 if all(res.values()) else 1
 
 
+def dev_budget(v: str) -> int | None:
+    return None if v == "all" else int(v)
+
+
 def cmd_run(a) -> int:
     for name in a.dataset:
-        res = bench.run(name, a.seed, a.budget)
+        res = bench.run(name, a.seed, a.budget, a.dev_budget)
         bench.write(res, ROOT / "results" / f"{name}-b{res['meta']['budget']}-seed{a.seed}.json")
         for k, v in res["rows"].items():
             s, h = v["student"], v["hybrid"]
@@ -60,27 +64,35 @@ def cmd_timeit(a) -> int:
 
 
 def cmd_record(a) -> int:
-    """Label the budgeted sample through a live provider. Writes the status either way."""
+    """Label the exact training and dev samples that `run` with the same seed and budgets uses.
+
+    Recordings go to fixtures/teacher/<dataset>/<model>/ with a model.txt, so `run` finds them by
+    model name and replays them byte for byte. Writes the status either way.
+    """
     prices = json.loads((ROOT / "data" / "prices.json").read_text())
-    ds = data.load(a.dataset, 0)
+    ds = data.load(a.dataset, a.seed)
     model = teacher.PROVIDERS[a.provider][2] if a.provider != "gemini" else prices["llm"]["model"]
+    folder = bench.FIXTURES / ds.name / bench.model_dir(model)
     t = teacher.Teacher(
         ds.labels,
-        teacher.Cache(bench.FIXTURES / ds.name),
+        teacher.Cache(folder),
         model,
         send=partial(teacher.http_send, a.provider),
         record=True,
     )
-    texts = data.sample(ds.train, a.budget, 0).texts
+    train, dev = bench.budget_splits(ds, a.budget, a.dev_budget, a.seed)
+    texts = train.texts + dev.texts
     status = {
         "date": dt.date.today().isoformat(),
         "provider": a.provider,
         "model": model,
+        "seed": a.seed,
         "requested": len(texts),
     }
     try:
         for x in texts:
             t.raw(x)
+        (folder / "model.txt").write_text(model + "\n")
         status.update({"result": "recorded", "calls": t.calls, "cache_hits": t.hits})
         code = 0
     except teacher.RecordBlocked as e:
@@ -125,6 +137,7 @@ def main(argv: list[str] | None = None) -> int:
     s.add_argument("--dataset", nargs="+", default=["banking77", "synthetic"])
     s.add_argument("--seed", type=int, default=0)
     s.add_argument("--budget", type=int, default=bench.BUDGET)
+    s.add_argument("--dev-budget", type=dev_budget, default=bench.DEV_BUDGET, help='dev labels, or "all"')
     s.set_defaults(fn=cmd_run)
     s = sub.add_parser("curve", help="learning curve and label noise sweep")
     s.add_argument("--dataset", default="banking77")
@@ -139,7 +152,9 @@ def main(argv: list[str] | None = None) -> int:
     s = sub.add_parser("record", help="record teacher labels from a live provider")
     s.add_argument("--provider", choices=sorted(teacher.PROVIDERS), default="groq")
     s.add_argument("--dataset", default="banking77")
+    s.add_argument("--seed", type=int, default=0)
     s.add_argument("--budget", type=int, default=bench.BUDGET)
+    s.add_argument("--dev-budget", type=dev_budget, default=bench.DEV_BUDGET, help='dev labels, or "all"')
     s.set_defaults(fn=cmd_record)
     s = sub.add_parser("readme", help="write the README tables and docs/index.html from results")
     s.add_argument("--check", action="store_true", help="fail if a generated file is out of date")

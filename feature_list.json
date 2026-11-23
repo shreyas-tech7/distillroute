@@ -143,6 +143,6 @@
       "test -f docs/HUMAN_STEPS.md",
       "test -f docs/handoff/COWORK_PROMPT.md"
     ],
-    "passes": false
+    "passes": true
   }
 ]

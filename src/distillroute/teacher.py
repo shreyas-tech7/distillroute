@@ -90,22 +90,41 @@ class Cache:
         p.write_bytes(raw)
 
 
-def http_send(provider: str, req: dict, timeout: float = 30.0, tries: int = 5) -> bytes:
+class _NoRedirect(urllib.request.HTTPRedirectHandler):
+    """Refuse every redirect, so the Authorization header never follows one to another host."""
+
+    def redirect_request(self, req, fp, code, msg, headers, newurl):  # noqa: ARG002
+        return None
+
+
+_OPENER = urllib.request.build_opener(_NoRedirect)
+
+
+def retry_after(e: urllib.error.HTTPError, default: float, cap: float = 60.0) -> float:
+    """Seconds to wait after a 429: the Retry-After header when it is a number, else `default`."""
+    try:
+        return min(cap, max(0.0, float(e.headers.get("Retry-After", ""))))
+    except (TypeError, ValueError, AttributeError):
+        return default
+
+
+def http_send(provider: str, req: dict, timeout: float = 30.0, tries: int = 5, opener=None) -> bytes:
     url, env, _ = PROVIDERS[provider]
     key = os.environ.get(env, "")
-    headers = {"Content-Type": "application/json"}
-    if key:
-        headers["Authorization"] = f"Bearer {key}"
+    if not key:
+        raise RecordBlocked(f"{provider}: {env} is not set")
+    headers = {"Content-Type": "application/json", "Authorization": f"Bearer {key}"}
     body = json.dumps(req).encode()
+    opener = opener or _OPENER
     wait = 2.0
     for _ in range(tries):
         try:
             r = urllib.request.Request(url, data=body, headers=headers, method="POST")  # noqa: S310 (fixed https URL from PROVIDERS)
-            with urllib.request.urlopen(r, timeout=timeout) as resp:  # noqa: S310 (fixed https URL)
+            with opener.open(r, timeout=timeout) as resp:
                 return resp.read()
         except urllib.error.HTTPError as e:
             if e.code == 429:
-                time.sleep(wait)
+                time.sleep(retry_after(e, wait))
                 wait *= 2
                 continue
             raise RecordBlocked(f"{provider} answered HTTP {e.code}") from e
@@ -137,6 +156,8 @@ class Teacher:
             raise KeyError(f"no recorded teacher label for request {key[:12]} and record mode is off")
         got = self.send(req)
         self.calls += 1
+        # Every real answer is kept, also one that names no label, so replay sees exactly what the
+        # teacher said. The pipeline drops unparsed rows and counts them. HTTP errors never get here.
         self.cache.put(key, got)
         return got
 

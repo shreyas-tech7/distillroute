@@ -48,12 +48,12 @@ A support team gets tickets. Each ticket needs a queue. An LLM can pick the queu
 - `test_router.py` checks the threshold rule and that it only sees dev labels.
 - `test_results.py` checks the results meet the brief and match the README.
 - `test_repo.py` checks the README layout, writing rules and shipped files.
-- `fixtures/teacher/` holds fake recorded answers for 40 synthetic tickets, for tests only.
+- `tests/fixtures/teacher/synthetic/fixture-model/` holds fake recorded answers for 40 synthetic training tickets and 20 dev tickets, for tests only. `scripts/make_test_fixtures.py` writes them.
 
 ## The headline
 
 <!-- gen:headline -->
-With 800 labels, the best student gets 65.2% accuracy on the BANKING77 test split, and the hybrid has to send 75% of tickets to the LLM to keep the student's share at the 95% target. With all 8498 training labels, TF-IDF gets 86.0% and the hybrid sends 30%.
+With 1100 labels (800 to train, 300 to set the threshold), the best student, Hash embedding + logistic regression, gets 65.2% accuracy on the BANKING77 test split. No confidence threshold passes the 95% rule on dev, so its hybrid sends every ticket to the LLM. With all 8498 training labels and 1498 dev labels, TF-IDF + logistic regression gets 86.0%. Its hybrid sends 37% of tickets to the LLM, and the tickets it keeps are 95.7% right on test, so it meets the 95% target.
 <!-- /gen:headline -->
 
 ## Other files

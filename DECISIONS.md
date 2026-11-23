@@ -21,3 +21,11 @@ One line per choice: the options weighed and the reason.
 - 2026-11-21 Timings: a fresh child process per student, pinned to cores 0 and 1 with `sched_setaffinity`, trained on the whole training split (the worst case, larger than the 800 budget).
 - 2026-11-21 Synthetic domain: about 15% vague tickets drawn from a shared pool, so the domain is not trivially separable. Without them both students scored 100%.
 - 2026-11-21 Test fixtures: fake recorded responses for 40 synthetic texts live in `tests/fixtures/teacher/` with model name `fixture-model`, so tests prove replay without pretending a real teacher ran.
+- 2026-11-23 Threshold rule changed to the Wilson lower bound of kept accuracy on dev at or above 95%. The point rule passed by luck on a small dev sample and missed the target on test. Cost: with 300 dev labels no BANKING77 threshold passes, so the hybrid sends everything to the LLM. That is the honest answer for that budget, and the full-label run shows where the rule starts to pay.
+- 2026-11-23 Dev labels count toward the label budget (300 by default) and come from the same source as the training labels. Options: free gold dev labels (overstates what 800 labels buy) or a share of the 800 (fewer training labels). A separate dev budget keeps the training budget comparable to the curve.
+- 2026-11-23 Recordings are stored per model under `fixtures/teacher/<dataset>/<model>/` with `model.txt`. `run` uses the first model folder that covers its whole sample, and a partial cover is an error.
+- 2026-11-23 Unparsed teacher answers are kept in the cache, so replay matches what the teacher said, and dropped from training and tuning, and counted.
+- 2026-11-23 Hybrid lower bound: each ticket sent to the LLM gets a wrong real class (the student's own wrong guess, else the next class). A placeholder class added no false positives, so macro-F1 came out too high.
+- 2026-11-23 Timings: every thread is pinned, the child is pinned before exec, and BLAS threads are capped at 2, because numpy starts threads at import.
+- 2026-11-23 Cost per ticket uses mean time, not p50, because a bill adds up every ticket. p50 stays as the latency column.
+- 2026-11-23 The macro-F1 bootstrap interval sits off-center with 77 classes because resamples miss rare classes. Left as is and noted, since a fix (a stratified bootstrap) changes the method for little gain.

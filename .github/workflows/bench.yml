@@ -19,6 +19,8 @@ jobs:
       - uses: astral-sh/setup-uv@v6
       - run: ./init.sh
       - run: .venv/bin/distillroute run
+      - run: .venv/bin/distillroute run --dataset banking77 --seed 1
+      - run: .venv/bin/distillroute run --dataset banking77 --budget 100000 --dev-budget all
       - run: .venv/bin/distillroute timings
       - run: .venv/bin/distillroute curve
       - uses: actions/upload-artifact@v4
