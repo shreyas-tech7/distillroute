@@ -4,7 +4,7 @@ One line per choice: the options weighed and the reason.
 
 - 2026-11-21 Name: `distillroute`. PyPI and npm both answered 404 for `distillroute` (and for `labelcheap`) on 2026-11-21. It matches the repo name, so no rename step.
 - 2026-11-21 Branch: push to `claude/project-thread-we8eq4`, not `claude/build-distillroute`. This session's git rules allow only that branch (brief rule 11).
-- 2026-11-21 Working copy: `/home/user/distillroute`, the clone this session already had on the allowed branch, instead of `~/work/distillroute`. Same remote, less setup.
+- 2026-11-21 Working copy: the clone this session already had on the allowed branch, instead of a fresh clone. Same remote, less setup.
 - 2026-11-21 Data: commit the four BANKING77 files (about 1 MB) under `data/banking77/` with the CC BY 4.0 license file. Options: download at test time, or commit. Committing keeps tests and CI offline and pins the bytes. CC BY 4.0 allows redistribution with attribution.
 - 2026-11-21 Train/test overlap: the official train file repeats 7 test texts. Drop them from training before the dev split. Options: keep them (leaks test), drop test rows (breaks the official test set), drop train rows. Dropping train rows keeps the official test intact.
 - 2026-11-21 Dev split: 15% of each intent from the training file, seed 0. The brief bans the test split for tuning.

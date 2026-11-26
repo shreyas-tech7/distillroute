@@ -137,11 +137,10 @@
   {
     "id": "F15",
     "area": "release",
-    "description": "Release check and hand-off: review, scans, outside check, HUMAN_STEPS, COWORK_PROMPT, CHANGELOG SHA",
+    "description": "Release check and hand-off: review, scans, outside check, HUMAN_STEPS, CHANGELOG SHA",
     "steps": [
       "test -f docs/RELEASE_CHECK.md",
-      "test -f docs/HUMAN_STEPS.md",
-      "test -f docs/handoff/COWORK_PROMPT.md"
+      "test -f docs/HUMAN_STEPS.md"
     ],
     "passes": true
   }

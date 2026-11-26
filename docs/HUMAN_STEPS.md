@@ -9,7 +9,7 @@ Release commit: `ab15e2806f782dbcb2a41a74c0f83ad5e79d59fa` (the same SHA is in C
 3. Run the secret scan once more: `gitleaks git -v .`
 4. Fill in the About box from `docs/GITHUB_ABOUT.md` and the topics from `docs/topics.txt`, if the coordinator could not.
 5. Upload `docs/social-preview.png` under Settings, General, Social preview.
-6. Make the repo public when ready. All history becomes public at that moment.
+6. Make the repo public. Done 2026-11-26: the repo is public.
 7. Turn on Pages from `docs/` if you want the results page online. It opens from disk without it.
 8. Pin the repo or list it in the profile README.
 9. Publish to PyPI with trusted publishing, if you want the package there. The name `distillroute` was free on 2026-11-21.
